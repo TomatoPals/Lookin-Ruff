@@ -2,3 +2,20 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+.button {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 20px;
+  text-align: left;
+  text-size-adjust: inherit;
+  background: linear-gradient(90deg, #b6eef2, #2eabe5);
+  border-radius: 5px;
+  padding: 5px;
+  display: block;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  padding: 10px; 
+}
+.button1:hover {
+  background: #ffab1a;
+}
+/* .button2:hover { background: linear-gradient(90deg,#a8e52e,#ecf004;} */
