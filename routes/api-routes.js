@@ -62,7 +62,7 @@ module.exports = function(app) {
         pass: "X5cx2ym18s4NrQZGzE"
       }
     });
-    let mailOptions = {
+    const mailOptions = {
       from: "'Do Not Reply' <appointments@lookinruff.com>",
       to: `${req.body.email}`,
       subject: "Lookin-Ruff Appointment",
