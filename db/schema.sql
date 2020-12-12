@@ -78,6 +78,7 @@ CREATE TABLE appointments (
     appointment_date VARCHAR(50) NOT NULL,
     service_id INT(11) DEFAULT NULL,
     createdAt DATETIME NOT NULL,
+    updatedAt DATETIME NOT NULL,
     complete BOOLEAN DEFAULT NULL,
     PRIMARY KEY (id)
 );

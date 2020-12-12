@@ -77,4 +77,28 @@ module.exports = function(app) {
       res.render("index");
     });
   });
+
+  //route for creating appointment
+  app.post("/api/createappointment", async (req, res) => {
+    const {
+      user_id,
+      stylist_id,
+      appointment_date,
+      service_id,
+      complete,
+    } = req.body;
+
+    try {
+      const createAppointment = await db.Appointment.create({
+        user_id,
+        stylist_id,
+        appointment_date,
+        service_id,
+        complete,
+      });
+      res.json(createAppointment);
+    } catch (error) {
+      res.json(error);
+    }
+  });
 };
