@@ -2,8 +2,8 @@ module.exports = (sequelize, DataTypes) => {
   const Stylist = sequelize.define("Stylist", {
     stylist_name: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
+      allowNull: false
+    }
   });
   return Stylist;
 };
