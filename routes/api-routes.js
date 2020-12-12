@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const nodemailer = require("nodemailer");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -10,7 +11,7 @@ module.exports = function(app) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      id: req.user.id
+      id: req.user.id,
     });
   });
 
@@ -20,12 +21,12 @@ module.exports = function(app) {
   app.post("/api/signup", (req, res) => {
     db.User.create({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
     })
       .then(() => {
         res.redirect(307, "/api/login");
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(401).json(err);
       });
   });
@@ -46,8 +47,34 @@ module.exports = function(app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
       });
     }
+  });
+
+  //Route for sending email
+  app.post("/api/send", (req, res) => {
+    const transporter = nodemailer.createTransport({
+      host: "smtp.ethereal.email",
+      port: 587,
+      auth: {
+        user: "mekhi67@ethereal.email",
+        pass: "TsCRzHPhZQ38MFyNK4",
+      },
+    });
+    let mailOptions = {
+      from: '"Do Not Reply" <appointments@lookinruff.com>',
+      to: `${req.body.email}`,
+      subject: "Lookin-Ruff Appointment",
+      html: "<b>Your upcoming appointment is scheduled for:</b>",
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return console.log(error);
+      }
+      console.log("Message %s sent: %s", info.messageId, info.response);
+      res.render("index");
+    });
   });
 };
