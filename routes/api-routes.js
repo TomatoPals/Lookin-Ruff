@@ -79,7 +79,7 @@ module.exports = function(app) {
   });
 
   //route for creating appointment
-  app.post("/api/createappointment", async (req, res) => {
+  app.post("/api/appointments", async (req, res) => {
     const {
       user_id,
       stylist_id,
@@ -102,8 +102,10 @@ module.exports = function(app) {
     }
   });
 
+  //route for
+
   //route for getting user appointment info
-  app.get("/api/getappoinments", (req, res) => {
+  app.get("/api/appointments", (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -114,5 +116,14 @@ module.exports = function(app) {
         }
       );
     }
+  });
+
+  app.put("/api/appointments", async (req, res) => {
+    const dbAppointment = await db.Appointment.update(req.body, {
+      where: {
+        user_id: req.body.user_id,
+      },
+    });
+    res.json(dbAppointment);
   });
 };

@@ -2,7 +2,7 @@ const sendEmail = $("#emailTest");
 
 sendEmail.on("click", async () => {
   const getUserData = await $.get("/api/user_data");
-  const getAppointmentInfo = await $.get("/api/getappoinments");
+  const getAppointmentInfo = await $.get("/api/appoinments");
   console.log(getAppointmentInfo);
   const postEmail = await $.post("/api/send", {
     email: getUserData.email,
