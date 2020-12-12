@@ -63,7 +63,7 @@ module.exports = function(app) {
       }
     });
     let mailOptions = {
-      from: '"Do Not Reply" <appointments@lookinruff.com>',
+      from: "'Do Not Reply' <appointments@lookinruff.com>",
       to: `${req.body.email}`,
       subject: "Lookin-Ruff Appointment",
       html: `<b>Your upcoming appointment is scheduled for: ${req.body.appointmentDate}</b>`
@@ -121,7 +121,7 @@ module.exports = function(app) {
   app.put("/api/appointments", async (req, res) => {
     const dbAppointment = await db.Appointment.update(req.body, {
       where: {
-        user_id: req.body.user_id
+        userId: req.body.user_id
       }
     });
     res.json(dbAppointment);

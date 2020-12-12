@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Stylist = sequelize.define("Stylist", {
-    stylist_name: {
+    stylistName: {
       type: DataTypes.STRING,
       allowNull: false
     }
