@@ -1,9 +1,3 @@
-/*!
- * Author:  Mark Allan B. Meriales
- * Name:    Mark Your Calendar v0.0.1
- * License: MIT License
- */
-
 (function($) {
   // https://stackoverflow.com/questions/563406/add-days-to-javascript-date
   Date.prototype.addDays = function(days) {
@@ -157,7 +151,6 @@
       return tmp;
     };
 
-    // i-set ang mga oras na pwedeng ilaan
     this.setAvailability = function(arr) {
       settings.availability = arr;
       render();
@@ -167,8 +160,6 @@
     this.clearAvailability = function() {
       settings.availability = [[], [], [], [], [], [], []];
     };
-
-    // pag napindot ang nakaraang linggo
     this.on("click", "#myc-prev-week", function() {
       settings.startDate = settings.startDate.addDays(-7);
       instance.clearAvailability();
@@ -179,7 +170,6 @@
       }
     });
 
-    // pag napindot ang susunod na linggo
     this.on("click", "#myc-next-week", function() {
       settings.startDate = settings.startDate.addDays(7);
       instance.clearAvailability();
@@ -190,7 +180,6 @@
       }
     });
 
-    // pag namili ng oras
     this.on("click", ".myc-available-time", function() {
       var date = $(this).data("date");
       var time = $(this).data("time");
