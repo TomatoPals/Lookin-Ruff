@@ -98,6 +98,7 @@ CREATE TABLE services (
     price FLOAT DEFAULT NULL,
     duration VARCHAR(100) DEFAULT NULL,
     createdAt DATETIME DEFAULT NULL,
+    updatedAt DATETIME DEFAULT NULL,
     PRIMARY KEY (id)
 );
 
