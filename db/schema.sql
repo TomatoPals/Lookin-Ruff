@@ -9,6 +9,7 @@ CREATE TABLE stylist (
     id INT NOT NULL AUTO_INCREMENT,
     stylist_name VARCHAR(100) NOT NULL,
     createdAt DATETIME DEFAULT NULL,
+    updatedAt DATETIME NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -17,6 +18,7 @@ CREATE TABLE roles (
     id INT NOT NULL AUTO_INCREMENT,
     role_name VARCHAR(100) NOT NULL,
     createdAt DATETIME DEFAULT NULL,
+    updatedAt DATETIME NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -29,6 +31,7 @@ CREATE TABLE dog_breed (
     breed_image VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
     breed_pdf VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
     createdAt DATETIME DEFAULT NULL,
+    updatedAt DATETIME NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -39,6 +42,7 @@ CREATE TABLE dog_breed_type (
     breed_type_name VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
     breed_type_id INT DEFAULT NULL,
     createdAt DATETIME DEFAULT NULL,
+    updatedAt DATETIME NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -48,6 +52,7 @@ CREATE TABLE dog_temperment (
     id INT NOT NULL AUTO_INCREMENT,
     temperment VARCHAR(100) NOT NULL,
     createdAt DATETIME DEFAULT NULL,
+    updatedAt DATETIME NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -58,6 +63,7 @@ CREATE TABLE dog_notes (
     user_id INT(11) DEFAULT NULL,
     note VARCHAR(350) NOT NULL,
     createdAt DATETIME NOT NULL,
+    updatedAt DATETIME NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -67,6 +73,7 @@ CREATE TABLE customer_images (
     user_id INT(11) DEFAULT NULL,
     image VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
     createdAt DATETIME NOT NULL,
+    updatedAt DATETIME NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -91,6 +98,7 @@ CREATE TABLE services (
     price FLOAT DEFAULT NULL,
     duration VARCHAR(100) DEFAULT NULL,
     createdAt DATETIME DEFAULT NULL,
+    updatedAt DATETIME NOT NULL,
     PRIMARY KEY (id)
 );
 
