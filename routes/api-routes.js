@@ -58,15 +58,15 @@ module.exports = function(app) {
       host: "smtp.ethereal.email",
       port: 587,
       auth: {
-        user: "mekhi67@ethereal.email",
-        pass: "TsCRzHPhZQ38MFyNK4",
+        user: "rylee.mueller@ethereal.email",
+        pass: "X5cx2ym18s4NrQZGzE",
       },
     });
     let mailOptions = {
       from: '"Do Not Reply" <appointments@lookinruff.com>',
       to: `${req.body.email}`,
       subject: "Lookin-Ruff Appointment",
-      html: "<b>Your upcoming appointment is scheduled for:</b>",
+      html: `<b>Your upcoming appointment is scheduled for: ${req.body.appointmentDate}</b>`,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -99,6 +99,20 @@ module.exports = function(app) {
       res.json(createAppointment);
     } catch (error) {
       res.json(error);
+    }
+  });
+
+  //route for getting user appointment info
+  app.get("/api/getappoinments", (req, res) => {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      db.Appointment.findAll({ where: { id: `${req.user.id}` } }).then(
+        (dbget) => {
+          res.json(dbget);
+        }
+      );
     }
   });
 };
