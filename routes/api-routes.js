@@ -118,6 +118,7 @@ module.exports = function(app) {
     }
   });
 
+  //route for updateing appointment info
   app.put("/api/appointments", async (req, res) => {
     const dbAppointment = await db.Appointment.update(req.body, {
       where: {
@@ -125,5 +126,142 @@ module.exports = function(app) {
       }
     });
     res.json(dbAppointment);
+  });
+
+  //route for adding a stylist
+  app.post("/api/stylist", async (req, res) => {
+    try {
+      const createStylist = await db.Stylist.create({
+        stylistName: req.body.stylistName
+      });
+      res.json(createStylist);
+    } catch (error) {
+      res.json(error);
+    }
+  });
+
+  //route for deleteing a stylist
+  app.delete("/api/stylist/", async (req, res) => {
+    const dbStylist = await db.Stylist.destroy({
+      where: {
+        id: req.body.id
+      }
+    });
+    res.json(dbStylist);
+  });
+
+  //route for adding a service
+  app.post("/api/services", async (req, res) => {
+    const { description, price, duration } = req.body;
+    try {
+      const createService = await db.Services.create({
+        description,
+        price,
+        duration
+      });
+      res.json(createService);
+    } catch (error) {
+      res.json(error);
+    }
+  });
+
+  //route for deleting a service
+  app.delete("/api/services/", async (req, res) => {
+    const dbService = await db.Services.destroy({
+      where: {
+        id: req.body.id
+      }
+    });
+    res.json(dbService);
+  });
+
+  //route for updating a service
+  app.put("/api/services", async (req, res) => {
+    const dbService = await db.Appointment.Services(req.body, {
+      where: {
+        id: req.body.id
+      }
+    });
+    res.json(dbService);
+  });
+
+  //route for creating a workday
+  app.post("/api/workday", async (req, res) => {
+    const { workday, startTime, endTime, active } = req.body;
+    try {
+      const createWorkday = await db.WorkDay.create({
+        workday,
+        startTime,
+        endTime,
+        active
+      });
+      res.json(createWorkday);
+    } catch (error) {
+      res.json(error);
+    }
+  });
+
+  //route for deleting a workday
+  app.delete("/api/workday/", async (req, res) => {
+    const dbWorkday = await db.Workday.destroy({
+      where: {
+        id: req.body.id
+      }
+    });
+    res.json(dbWorkday);
+  });
+
+  //route for updating a workday
+  app.put("/api/workday", async (req, res) => {
+    const dbWorkday = await db.Workday.Services(req.body, {
+      where: {
+        id: req.body.id
+      }
+    });
+    res.json(dbWorkday);
+  });
+
+  //route for creating dog note
+  app.post("/api/dognotes", async (req, res) => {
+    const { userId, note } = req.body;
+    try {
+      const createDogNote = await db.DogNotes.create({
+        userId,
+        note
+      });
+      res.json(createDogNote);
+    } catch (error) {
+      res.json(error);
+    }
+  });
+
+  //route for deleting a dog note
+  app.delete("/api/dognotes/", async (req, res) => {
+    const dbDogNotes = await db.DogNotes.destroy({
+      where: {
+        id: req.body.id
+      }
+    });
+    res.json(dbDogNotes);
+  });
+
+  //route for updating a dog note
+  app.put("/api/dognotes", async (req, res) => {
+    const dbDogNotes = await db.DogNotes.Services(req.body, {
+      where: {
+        id: req.body.id
+      }
+    });
+    res.json(dbDogNotes);
+  });
+
+  //route for getting a dog note
+  app.get("/api/dognotes/:id", async (req, res) => {
+    const dbDogNotes = await db.DogNotes.findOne({
+      where: {
+        id: req.params.id
+      }
+    });
+    res.json(dbDogNotes);
   });
 };

@@ -58,7 +58,7 @@ CREATE TABLE dog_temperment (
 
 
 /*dog_notes table */
-CREATE TABLE dog_notes (
+CREATE TABLE dogNotes (
     id INT NOT NULL AUTO_INCREMENT,
     userId INT(11) DEFAULT NULL,
     note VARCHAR(350) NOT NULL,
@@ -104,7 +104,7 @@ CREATE TABLE services (
 
 
 /*services working_days */
-CREATE TABLE working_days (
+CREATE TABLE workingDays (
     id INT NOT NULL AUTO_INCREMENT,
     workday VARCHAR(50) NOT NULL,
     startTime VARCHAR(50) NOT NULL,

@@ -13,5 +13,5 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: null
     }
   });
-  return Stylist;
+  return Services;
 };
