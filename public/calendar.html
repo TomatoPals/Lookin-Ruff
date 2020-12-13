@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Demo | Mark Your Calendar</title>
+    <title>Calendar</title>
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
@@ -30,8 +30,10 @@
                 ],
                 startDate: new Date("2020-10-25"),
                 onClick: function (ev, data) {
-                    // data is a list of datetimes
+                    // data is a list of datetimes ex ["2020-10-25 2:00"]
+                    // ex d =  2020-10-26 (yyyy-mm-dd)
                     var d = data[0].split(' ')[0];
+                    // ex: t = 4:00
                     var t = data[0].split(' ')[1];
                     $('#selected-date').html(d);
                     $('#selected-time').html(t);
