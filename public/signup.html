@@ -20,23 +20,93 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h2>Sign Up Form</h2>
+        <p>Already a Member? Login <a href="/login">here</a></p>
         <form class="signup">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
+          <h4 style="padding: 0 0 2px 0;">Member Info</h4>
+          <div class="row">
+            <div class="form-group col-lg-6">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName-input" placeholder="First name">
+            </div>
+            <div class="form-group col-lg-6">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName-input" placeholder="Last name">
+            </div>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
+          <div class="row">
+            <div class="form-group col-lg-12">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password-input" placeholder="Password">
+            </div>
+            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Error:</span> <span class="msg"></span>
+            </div>
           </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
+          <div class="row">
+            <div class="form-group col-lg-8">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email-input" placeholder="Email">
+            </div>
+            <div class="form-group col-lg-4">
+              <label for="phone">Phone</label>
+              <input type="text" class="form-control" id="phone-input" placeholder="Phone">
+            </div>
           </div>
-          <button type="submit" class="btn btn-default">Sign Up</button>
+          <div class="row">
+            <div class="form-group col-lg-6">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" id="address-input" placeholder="Address">
+            </div>
+            <div class="form-group col-lg-6">
+              <label for="address2">Address 2</label>
+              <input type="text" class="form-control" id="address2-input" placeholder="Address 2">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-lg-8">
+              <label for="city">City</label>
+              <input type="text" class="form-control" id="city-input" placeholder="City">
+            </div>
+            <div class="form-group col-lg-2">
+              <label for="state">State</label>
+              <input type="text" class="form-control" id="state-input" placeholder="State">
+            </div>
+            <div class="form-group col-lg-2">
+              <label for="zipCode">Zip</label>
+              <input type="text" class="form-control" id="zipCode-input" placeholder="Zip">
+            </div>
+          </div>
+          <h4 style="padding: 0 0 10px 0;">Dog Info</h4>
+          <div class="row">
+            <div class="form-group col-lg-6">
+              <label for="dogName">Dog Name</label>
+              <input type="text" class="form-control" id="dogName-input" placeholder="Dog Name">
+            </div>
+            <div class="form-group col-lg-6">
+              <label for="breedName">Dog Temperament</label>
+              <input type="text" class="form-control" id="breedName-input" placeholder="Dog Temperament">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-lg-6">
+              <label for="breedName">Breed Name</label>
+              <input type="text" class="form-control" id="breedName-input" placeholder="Breed Name">
+            </div>
+            <div class="form-group col-lg-6">
+              <label for="dogBreedId">Breed Type</label>
+              <input type="text" class="form-control" id="dogBreedId-input" placeholder="Breed Type">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <label for="dogNote">Dog Notes</label>
+              <textarea class="form-control" id="dogNote" rows="4"></textarea>
+            </div>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-success">Sign Up</button>
         </form>
-        <br />
-        <p>Or log in <a href="/login">here</a></p>
       </div>
     </div>
   </div>
