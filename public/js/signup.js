@@ -4,6 +4,8 @@ $(document).ready(() => {
   const emailInput = $("input#email-input");
   const passwordInput = $("input#password-input");
 
+  
+
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", event => {
     event.preventDefault();
@@ -21,8 +23,14 @@ $(document).ready(() => {
     passwordInput.val("");
   });
 
+  //have .get that will get data from the db, then .then to  populate dropdowns on this page when it opens
+  $.get("/api/temperment", {
+
+  })
+
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
+  //defining the end point here with post request, this is handles in api-routes
   function signUpUser(email, password) {
     $.post("/api/signup", {
       email: email,
@@ -40,3 +48,5 @@ $(document).ready(() => {
     $("#alert").fadeIn(500);
   }
 });
+
+//have .get that will get data from the db, then .then to  populate dropdowns on this page when it opens
