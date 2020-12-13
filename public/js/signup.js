@@ -4,7 +4,9 @@ $(document).ready(() => {
   const emailInput = $("input#email-input");
   const passwordInput = $("input#password-input");
 
-  
+  const temperment = $("#temperment").val();
+  let temperment = [];
+  getTemperment();
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", event => {
@@ -24,9 +26,14 @@ $(document).ready(() => {
   });
 
   //have .get that will get data from the db, then .then to  populate dropdowns on this page when it opens
-  $.get("/api/temperment", {
-
-  })
+  function getTemperment() {
+    $.get("/api/temperment", function(data){
+      temperments = data;
+    }).then (
+      console.log('Temperments: ', temperments)
+      //populate the returned temperments to the dropdown
+    )
+  }
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors

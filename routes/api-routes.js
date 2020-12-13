@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const temperment = require("../models/temperment");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -13,14 +14,19 @@ module.exports = function(app) {
       id: req.user.id
     });
   });
-
+// get request to api/temperments search db to return that table, findall look at activity 10
+//post api/users
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
+
+  
   app.post("/api/signup", (req, res) => {
+   //posting to db user table
     db.User.create({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      temperment:req.body.temperment
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -45,9 +51,18 @@ module.exports = function(app) {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
-        email: req.user.email,
+        email: req.user .email,
         id: req.user.id
       });
     }
   });
-};
+
+// Route for populating the temperments dropdown
+app.get("/api/temperment", function(req, res) {
+  // findAll returns all entries for a table when used with no options
+  db.dog_temperment.findAll({}).then(function(dbTemperment) {
+    // We have access to the todos as an argument inside of the callback function
+    res.json(dbTemperment);
+  });
+})
+}
