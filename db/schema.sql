@@ -23,7 +23,7 @@ CREATE TABLE roles (
 );
 
 /*dog_breed table*/
-CREATE TABLE dog_breed (
+CREATE TABLE dogBreed (
     id INT NOT NULL AUTO_INCREMENT,
     breedName VARCHAR(100) NOT NULL,
     breedTypeId INT DEFAULT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE dog_breed (
 
 
 /*dog breed type*/
-CREATE TABLE dog_breed_type (
+CREATE TABLE dogBreedType (
     id INT NOT NULL AUTO_INCREMENT,
     breedTypeName VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
     breedTypeId INT DEFAULT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE dog_breed_type (
 
 
 /*dog_temperment table*/
-CREATE TABLE dog_temperment (
+CREATE TABLE dogTemperment (
     id INT NOT NULL AUTO_INCREMENT,
     temperment VARCHAR(100) NOT NULL,
     createdAt DATETIME DEFAULT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE dogNotes (
 );
 
 /*customer_images table */
-CREATE TABLE customer_images (
+CREATE TABLE customerImages (
     id TINYINT NOT NULL AUTO_INCREMENT,
     userId INT(11) DEFAULT NULL,
     image VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
