@@ -5,7 +5,7 @@ $(document).ready(() => {
   const passwordInput = $("input#password-input");
 
   const temperment = $("#temperment").val();
-  let temperment = [];
+  let temperments = [];
   getTemperment();
 
   // When the signup button is clicked, we validate the email and password are not blank
