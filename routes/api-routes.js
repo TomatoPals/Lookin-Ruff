@@ -60,7 +60,7 @@ module.exports = function(app) {
 // Route for populating the temperments dropdown
 app.get("/api/temperment", function(req, res) {
   // findAll returns all entries for a table when used with no options
-  db.dog_temperment.findAll({}).then(function(dbTemperment) {
+  db.dogTemperment.findAll({}).then(function(dbTemperment) {
     // We have access to the todos as an argument inside of the callback function
     res.json(dbTemperment);
   });
