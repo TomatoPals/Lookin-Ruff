@@ -45,7 +45,7 @@
     const formatDate = function(d) {
       let date = "" + d.getDate();
       let month = "" + (d.getMonth() + 1);
-      let year = d.getFullYear();
+      const year = d.getFullYear();
       if (date.length < 2) {
         date = "0" + date;
       }
@@ -67,7 +67,7 @@
     };
 
     this.getDatesHeader = function() {
-      let tmp = ``;
+      let tmp = "";
       for (i = 0; i < 7; i++) {
         const d = settings.startDate.addDays(i);
         tmp += `<div class="myc-date-header" id="myc-date-header-${i}"><div class="myc-date-number"> ${d.getDate()}</div><div class="myc-date-display"> ${
@@ -79,9 +79,9 @@
     };
 
     this.getAvailableTimes = function() {
-      let tmp = ``;
+      let tmp = "";
       for (i = 0; i < 7; i++) {
-        let tmpAvailTimes = ``;
+        let tmpAvailTimes = "";
         $.each(settings.availability[i], function() {
           tmpAvailTimes += `<a href="javascript:;" class="myc-available-time" data-time="${this}" data-date="${formatDate(
             settings.startDate.addDays(i)
@@ -172,7 +172,7 @@ span.onclick = function() {
   modal.style.display = "none";
 };
 window.onclick = function(event) {
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = "none";
   }
 };
