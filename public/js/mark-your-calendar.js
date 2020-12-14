@@ -6,12 +6,8 @@
   };
 
   $.fn.markyourcalendar = function(opts) {
-    const prevHtml = `
-            <div id="myc-prev-week">
-                <
-            </div>
-        `;
-    const nextHtml = `<div id="myc-next-week">></div>`;
+    const prevHtml = "<div id='myc-prev-week'></div>";
+    const nextHtml = "<div id='myc-next-week'></div>";
     const defaults = {
       availability: [[], [], [], [], [], [], []],
       isMultiple: false,
@@ -27,16 +23,16 @@
         "sep",
         "oct",
         "nov",
-        "dec",
+        "dec"
       ],
       prevHtml: prevHtml,
       nextHtml: nextHtml,
       selectedDates: [],
       startDate: new Date(),
-      weekdays: ["sun", "mon", "tue", "wed", "thurs", "fri", "sat"],
+      weekdays: ["sun", "mon", "tue", "wed", "thurs", "fri", "sat"]
     };
     const settings = $.extend({}, defaults, opts);
-    const html = ``;
+    // const html = ``;
 
     const onClick = settings.onClick;
     const onClickNavigator = settings.onClickNavigator;
@@ -47,9 +43,9 @@
     };
 
     const formatDate = function(d) {
-      const date = "" + d.getDate();
-      const month = "" + (d.getMonth() + 1);
-      const year = d.getFullYear();
+      let date = "" + d.getDate();
+      let month = "" + (d.getMonth() + 1);
+      let year = d.getFullYear();
       if (date.length < 2) {
         date = "0" + date;
       }
@@ -60,90 +56,38 @@
     };
     // Controller to change to previous week
     this.getNavControl = function() {
-      const previousWeekHtml =
-        `<div id="myc-prev-week-container">` + settings.prevHtml + `</div>`;
-      const nextWeekHtml =
-        `<div id="myc-prev-week-container">` + settings.nextHtml + `</div>`;
-      const monthYearHtml =
-        `
-                <div id="myc-current-month-year-container">
-                    ` +
-        this.getMonthName(settings.startDate.getMonth()) +
-        " " +
-        settings.startDate.getFullYear() +
-        `
-                </div>
-            `;
+      const previousWeekHtml = `<div id="myc-prev-week-container"> ${settings.prevHtml} </div>`;
+      const nextWeekHtml = `<div id="myc-prev-week-container"> ${settings.nextHtml} </div>`;
+      const monthYearHtml = `<div id="myc-current-month-year-container"> ${this.getMonthName(
+        settings.startDate.getMonth()
+      )} ${settings.startDate.getFullYear()} </div> `;
 
-      const navHtml =
-        `
-                <div id="myc-nav-container">
-                    ` +
-        previousWeekHtml +
-        `
-                    ` +
-        monthYearHtml +
-        `
-                    ` +
-        nextWeekHtml +
-        `
-                    <div style="clear:both;"></div>
-                </div>
-            `;
+      const navHtml = `<div id="myc-nav-container"> ${previousWeekHtml} ${monthYearHtml} ${nextWeekHtml} <div style="clear:both;"></div></div>`;
       return navHtml;
     };
 
     this.getDatesHeader = function() {
-      const tmp = ``;
+      let tmp = ``;
       for (i = 0; i < 7; i++) {
         const d = settings.startDate.addDays(i);
-        tmp +=
-          `
-                    <div class="myc-date-header" id="myc-date-header-` +
-          i +
-          `">
-                        <div class="myc-date-number">` +
-          d.getDate() +
-          `</div>
-                        <div class="myc-date-display">` +
-          settings.weekdays[d.getDay()] +
-          `</div>
-                    </div>
-                `;
+        tmp += `<div class="myc-date-header" id="myc-date-header-${i}"><div class="myc-date-number"> ${d.getDate()}</div><div class="myc-date-display"> ${
+          settings.weekdays[d.getDay()]
+        }</div></div>`;
       }
-      const ret = `<div id="myc-dates-container">` + tmp + `</div>`;
+      const ret = `<div id="myc-dates-container">${tmp}</div>`;
       return ret;
     };
 
     this.getAvailableTimes = function() {
-      const tmp = ``;
+      let tmp = ``;
       for (i = 0; i < 7; i++) {
-        const tmpAvailTimes = ``;
+        let tmpAvailTimes = ``;
         $.each(settings.availability[i], function() {
-          tmpAvailTimes +=
-            `
-                        <a href="javascript:;" class="myc-available-time" data-time="` +
-            this +
-            `" data-date="` +
-            formatDate(settings.startDate.addDays(i)) +
-            `">
-                            ` +
-            this +
-            `
-                        </a>
-                    `;
+          tmpAvailTimes += `<a href="javascript:;" class="myc-available-time" data-time="${this}" data-date="${formatDate(
+            settings.startDate.addDays(i)
+          )} ">${this}</a>`;
         });
-        tmp +=
-          `
-                    <div class="myc-day-time-container" id="myc-day-time-container-` +
-          i +
-          `">
-                        ` +
-          tmpAvailTimes +
-          `
-                        <div style="clear:both;"></div>
-                    </div>
-                `;
+        tmp += `<div class="myc-day-time-container" id="myc-day-time-container-${i}">${tmpAvailTimes}<div style="clear:both;"></div></div>`;
       }
       return tmp;
     };
@@ -210,22 +154,7 @@
     });
 
     const render = function() {
-      ret =
-        `
-                <div id="myc-container">
-                    <div id="myc-nav-container">` +
-        instance.getNavControl() +
-        `</div>
-                    <div id="myc-week-container">
-                        <div id="myc-dates-container">` +
-        instance.getDatesHeader() +
-        `</div>
-                        <div id="myc-available-time-container">` +
-        instance.getAvailableTimes() +
-        `</div>
-                    </div>
-                </div>
-            `;
+      ret = `<div id="myc-container"><div id="myc-nav-container"> ${instance.getNavControl()}</div><div id="myc-week-container"><div id="myc-dates-container">${instance.getDatesHeader()}</div><div id="myc-available-time-container">${instance.getAvailableTimes()}</div></div></div>`;
       instance.html(ret);
     };
 
