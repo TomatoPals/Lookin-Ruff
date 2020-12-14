@@ -23,7 +23,7 @@ CREATE TABLE roles (
 );
 
 /*dog_breed table*/
-CREATE TABLE dog_breed (
+CREATE TABLE dogBreed (
     id INT NOT NULL AUTO_INCREMENT,
     breedName VARCHAR(100) NOT NULL,
     breedTypeId INT DEFAULT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE dog_breed (
 
 
 /*dog breed type*/
-CREATE TABLE dog_breed_type (
+CREATE TABLE dogBreedType (
     id INT NOT NULL AUTO_INCREMENT,
     breedTypeName VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
     breedTypeId INT DEFAULT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE dog_breed_type (
 
 
 /*dog_temperment table*/
-CREATE TABLE dog_temperment (
+CREATE TABLE dogTemperment (
     id INT NOT NULL AUTO_INCREMENT,
     temperment VARCHAR(100) NOT NULL,
     createdAt DATETIME DEFAULT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE dog_temperment (
 
 
 /*dog_notes table */
-CREATE TABLE dog_notes (
+CREATE TABLE dogNotes (
     id INT NOT NULL AUTO_INCREMENT,
     userId INT(11) DEFAULT NULL,
     note VARCHAR(350) NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE dog_notes (
 );
 
 /*customer_images table */
-CREATE TABLE customer_images (
+CREATE TABLE customerImages (
     id TINYINT NOT NULL AUTO_INCREMENT,
     userId INT(11) DEFAULT NULL,
     image VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
@@ -98,12 +98,13 @@ CREATE TABLE services (
     price FLOAT DEFAULT NULL,
     duration VARCHAR(100) DEFAULT NULL,
     createdAt DATETIME DEFAULT NULL,
+    updatedAt DATETIME DEFAULT NULL,
     PRIMARY KEY (id)
 );
 
 
 /*services working_days */
-CREATE TABLE working_days (
+CREATE TABLE workingDays (
     id INT NOT NULL AUTO_INCREMENT,
     workday VARCHAR(50) NOT NULL,
     startTime VARCHAR(50) NOT NULL,
@@ -117,6 +118,7 @@ CREATE TABLE working_days (
 
 CREATE TABLE Users (
     id INT(11) NOT NULL AUTO_INCREMENT,
+    isAdmin BOOLEAN DEFAULT false,
     firstName VARCHAR(255) COLLATE UTF8_UNICODE_CI NOT NULL,
     lastName VARCHAR(255) COLLATE UTF8_UNICODE_CI NOT NULL,
     email VARCHAR(128) COLLATE UTF8_UNICODE_CI NOT NULL,
