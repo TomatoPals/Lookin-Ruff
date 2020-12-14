@@ -65,7 +65,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    dogTempramentId: {
+    dogTempermentId: {
       type: DataTypes.INTEGER,
       allowNull: true
     },

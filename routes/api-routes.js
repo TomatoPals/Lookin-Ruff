@@ -11,8 +11,8 @@ module.exports = function(app) {
       id: req.user.id
     });
   });
-
   app.post("/api/signup", (req, res) => {
+    //posting to db user table
     db.User.create({
       email: req.body.email,
       password: req.body.password,
@@ -220,6 +220,14 @@ module.exports = function(app) {
     }
   });
 
+  // Route for populating the temperments dropdown
+  app.get("/api/temperment", (req, res) => {
+    // findAll returns all entries for a table when used with no options
+    db.dogTemperment.findAll({}).then(dbTemperment => {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbTemperment);
+    });
+  });
   //route for deleting a workday
   app.delete("/api/workday/", async (req, res) => {
     const dbWorkday = await db.Workday.destroy({
