@@ -3,6 +3,7 @@ const path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const isAdmin = require("../config/middleware/isAdmin");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
@@ -25,5 +26,19 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "../public/members.html"));
+  });
+
+  app.get("/admin-dashboard", isAdmin, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/admin-dashboard.html"));
+  });
+
+  app.get("/admin-login", (req, res) => {
+    if (req.user) {
+      if (req.user.isAdmin) {
+        res.redirect("/admin-dashboard");
+      }
+      res.sendFile(path.join(__dirname, "../public/admin-login.html"));
+    }
+    res.sendFile(path.join(__dirname, "../public/admin-login.html"));
   });
 };
