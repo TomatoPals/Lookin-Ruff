@@ -1,18 +1,18 @@
 (function($) {
   Date.prototype.addDays = function(days) {
-    var date = new Date(this.valueOf());
+    const date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
     return date;
   };
 
   $.fn.markyourcalendar = function(opts) {
-    var prevHtml = `
+    const prevHtml = `
             <div id="myc-prev-week">
                 <
             </div>
         `;
-    var nextHtml = `<div id="myc-next-week">></div>`;
-    var defaults = {
+    const nextHtml = `<div id="myc-next-week">></div>`;
+    const defaults = {
       availability: [[], [], [], [], [], [], []],
       isMultiple: false,
       months: [
@@ -35,21 +35,21 @@
       startDate: new Date(),
       weekdays: ["sun", "mon", "tue", "wed", "thurs", "fri", "sat"],
     };
-    var settings = $.extend({}, defaults, opts);
-    var html = ``;
+    const settings = $.extend({}, defaults, opts);
+    const html = ``;
 
-    var onClick = settings.onClick;
-    var onClickNavigator = settings.onClickNavigator;
-    var instance = this;
+    const onClick = settings.onClick;
+    const onClickNavigator = settings.onClickNavigator;
+    const instance = this;
 
     this.getMonthName = function(idx) {
       return settings.months[idx];
     };
 
-    var formatDate = function(d) {
-      var date = "" + d.getDate();
-      var month = "" + (d.getMonth() + 1);
-      var year = d.getFullYear();
+    const formatDate = function(d) {
+      const date = "" + d.getDate();
+      const month = "" + (d.getMonth() + 1);
+      const year = d.getFullYear();
       if (date.length < 2) {
         date = "0" + date;
       }
@@ -60,11 +60,11 @@
     };
     // Controller to change to previous week
     this.getNavControl = function() {
-      var previousWeekHtml =
+      const previousWeekHtml =
         `<div id="myc-prev-week-container">` + settings.prevHtml + `</div>`;
-      var nextWeekHtml =
+      const nextWeekHtml =
         `<div id="myc-prev-week-container">` + settings.nextHtml + `</div>`;
-      var monthYearHtml =
+      const monthYearHtml =
         `
                 <div id="myc-current-month-year-container">
                     ` +
@@ -75,7 +75,7 @@
                 </div>
             `;
 
-      var navHtml =
+      const navHtml =
         `
                 <div id="myc-nav-container">
                     ` +
@@ -94,9 +94,9 @@
     };
 
     this.getDatesHeader = function() {
-      var tmp = ``;
+      const tmp = ``;
       for (i = 0; i < 7; i++) {
-        var d = settings.startDate.addDays(i);
+        const d = settings.startDate.addDays(i);
         tmp +=
           `
                     <div class="myc-date-header" id="myc-date-header-` +
@@ -111,14 +111,14 @@
                     </div>
                 `;
       }
-      var ret = `<div id="myc-dates-container">` + tmp + `</div>`;
+      const ret = `<div id="myc-dates-container">` + tmp + `</div>`;
       return ret;
     };
 
     this.getAvailableTimes = function() {
-      var tmp = ``;
+      const tmp = ``;
       for (i = 0; i < 7; i++) {
-        var tmpAvailTimes = ``;
+        const tmpAvailTimes = ``;
         $.each(settings.availability[i], function() {
           tmpAvailTimes +=
             `
@@ -178,12 +178,12 @@
     });
 
     this.on("click", ".myc-available-time", function() {
-      var date = $(this).data("date");
-      var time = $(this).data("time");
-      var tmp = date + " " + time;
+      const date = $(this).data("date");
+      const time = $(this).data("time");
+      const tmp = date + " " + time;
       if ($(this).hasClass("selected")) {
         $(this).removeClass("selected");
-        var idx = settings.selectedDates.indexOf(tmp);
+        const idx = settings.selectedDates.indexOf(tmp);
         if (idx !== -1) {
           settings.selectedDates.splice(idx, 1);
         }
@@ -209,7 +209,7 @@
       createModal();
     });
 
-    var render = function() {
+    const render = function() {
       ret =
         `
                 <div id="myc-container">
@@ -233,9 +233,9 @@
   };
 })(jQuery);
 
-var modal = document.getElementById("apptModal");
-var btn = $(".myc-available-time");
-var span = document.getElementsByClassName("close")[0];
+const modal = document.getElementById("apptModal");
+const btn = $(".myc-available-time");
+const span = document.getElementsByClassName("close")[0];
 btn.onclick = function() {
   modal.style.display = "block";
 };

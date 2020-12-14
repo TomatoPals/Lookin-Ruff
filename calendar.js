@@ -1,10 +1,10 @@
-let today = new Date();
+const today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
-let selectYear = document.getElementById("year");
-let selectMonth = document.getElementById("month");
+const selectYear = document.getElementById("year");
+const selectMonth = document.getElementById("month");
 
-let months = [
+const months = [
   "Jan",
   "Feb",
   "Mar",
@@ -16,10 +16,10 @@ let months = [
   "Sep",
   "Oct",
   "Nov",
-  "Dec",
+  "Dec"
 ];
 
-let monthAndYear = document.getElementById("monthAndYear");
+const monthAndYear = document.getElementById("monthAndYear");
 showCalendar(currentMonth, currentYear);
 
 function next() {
