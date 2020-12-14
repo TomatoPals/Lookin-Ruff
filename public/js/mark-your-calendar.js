@@ -1,5 +1,4 @@
 (function($) {
-  // https://stackoverflow.com/questions/563406/add-days-to-javascript-date
   Date.prototype.addDays = function(days) {
     var date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
@@ -43,7 +42,6 @@
     var onClickNavigator = settings.onClickNavigator;
     var instance = this;
 
-    // kuhanin ang buwan
     this.getMonthName = function(idx) {
       return settings.months[idx];
     };
@@ -60,7 +58,7 @@
       }
       return year + "-" + month + "-" + date;
     };
-    // Controller to change
+    // Controller to change to previous week
     this.getNavControl = function() {
       var previousWeekHtml =
         `<div id="myc-prev-week-container">` + settings.prevHtml + `</div>`;
@@ -117,7 +115,6 @@
       return ret;
     };
 
-    // kuhanin ang mga pwedeng oras sa bawat araw ng kasalukuyang linggo
     this.getAvailableTimes = function() {
       var tmp = ``;
       for (i = 0; i < 7; i++) {
@@ -206,6 +203,10 @@
       if ($.isFunction(onClick)) {
         onClick.call(this, ...arguments, settings.selectedDates);
       }
+      function createModal() {
+        modal.style.display = "block";
+      }
+      createModal();
     });
 
     var render = function() {
@@ -231,3 +232,18 @@
     render();
   };
 })(jQuery);
+
+var modal = document.getElementById("apptModal");
+var btn = $(".myc-available-time");
+var span = document.getElementsByClassName("close")[0];
+btn.onclick = function() {
+  modal.style.display = "block";
+};
+span.onclick = function() {
+  modal.style.display = "none";
+};
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
