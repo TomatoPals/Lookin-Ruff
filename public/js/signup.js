@@ -62,14 +62,14 @@ $(document).ready(() => {
 
   //have .get that will get data from the db, then .then to  populate dropdowns on this page when it opens
   //move to the appropriate file when its created
-  function getTemperment() {
-    $.get("/api/temperment", function(data) {
+  const getTemperment = () => {
+    $.get("/api/temperment", data => {
       temperments = data;
     }).then(
       console.log("Temperments: ", temperments)
       //populate the returned temperments to the dropdown
     );
-  }
+  };
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
