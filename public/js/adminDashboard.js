@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(() => {
   const getServices = async () => await $.get("/api/services");
 
   const displayServices = async response => {
