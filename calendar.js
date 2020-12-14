@@ -1,6 +1,6 @@
 const today = new Date();
-let currentMonth = today.getMonth();
-let currentYear = today.getFullYear();
+const currentMonth = today.getMonth();
+const currentYear = today.getFullYear();
 const selectYear = document.getElementById("year");
 const selectMonth = document.getElementById("month");
 
