@@ -182,7 +182,7 @@ module.exports = function(app) {
   app.delete("/api/services/", async (req, res) => {
     const dbService = await db.Services.destroy({
       where: {
-        id: req.body.id
+        price: req.body.price
       }
     });
     res.json(dbService);
@@ -190,7 +190,7 @@ module.exports = function(app) {
 
   //route for updating a service
   app.put("/api/services", async (req, res) => {
-    const dbService = await db.Appointment.Services(req.body, {
+    const dbService = await db.Services.update(req.body, {
       where: {
         id: req.body.id
       }
@@ -226,7 +226,7 @@ module.exports = function(app) {
 
   //route for updating a workday
   app.put("/api/workday", async (req, res) => {
-    const dbWorkday = await db.Workday.Services(req.body, {
+    const dbWorkday = await db.Workday.update(req.body, {
       where: {
         id: req.body.id
       }
@@ -260,7 +260,7 @@ module.exports = function(app) {
 
   //route for updating a dog note
   app.put("/api/dognotes", async (req, res) => {
-    const dbDogNotes = await db.DogNotes.Services(req.body, {
+    const dbDogNotes = await db.DogNotes.update(req.body, {
       where: {
         id: req.body.id
       }
