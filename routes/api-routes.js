@@ -178,6 +178,12 @@ module.exports = function(app) {
     }
   });
 
+  //route for getting services
+  app.get("/api/services", async (req, res) => {
+    const dbServices = await db.Services.findAll({});
+    res.json(dbServices);
+  });
+
   //route for deleting a service
   app.delete("/api/services/", async (req, res) => {
     const dbService = await db.Services.destroy({
