@@ -11,6 +11,7 @@ module.exports = function(app) {
       id: req.user.id
     });
   });
+
   app.post("/api/signup", (req, res) => {
     db.User.create({
       email: req.body.email,
