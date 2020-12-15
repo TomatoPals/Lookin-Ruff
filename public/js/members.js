@@ -16,5 +16,42 @@ $(document).ready(() => {
     // dog info
     $("#dogName").val(data.dogName);
     $("#dogNote").val(data.dogNote);
+
+  
+    
   });
 });
+const getTemperment = () => {
+  $.get("/api/temperment", data => {
+    temperments = data;
+  }).then(
+    // console.log("Temperments: ", temperments);
+    //populate the returned temperments to the dropdown
+    for (var i = 0; i < temperments.length; i++){
+      $('<option/>').val(temperments[i]).text(temperments[i]).appendTo('#mydropdown');
+    };
+  );
+};
+
+
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+  event.preventDefault();
+  console.log("myFunction is running");
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
