@@ -5,18 +5,16 @@ $(document).ready(() => {
     const inputDescription = $("#inputDescription");
     const inputPrice = $("#inputPrice");
     const inputDuration = $("#inputDuration");
-    const deleteService = async () =>
-      await $.ajax({
-        url: `/api/services/${event.target.id}`,
-        type: "DELETE"
-      });
-
-    const createService = async () =>
+    const deleteService = async function() {
+      await $.ajax({ url: `/api/services/${event.target.id}`, type: "DELETE" });
+    };
+    const createService = async function() {
       await $.post("/api/services", {
         description: `${inputDescription.val()}`,
         price: `${inputPrice.val()}`,
         duration: `${inputDuration.val()}`
       });
+    };
     if (`${event.target.getAttribute("data-btn")}` === "save") {
       createService();
       location.reload();
@@ -32,16 +30,18 @@ $(document).ready(() => {
     event.preventDefault();
     event.stopPropagation();
     const inputName = $("#inputName");
-    const deleteStylist = async () =>
+    const deleteStylist = async function() {
       await $.ajax({
         url: `/api/stylist/${event.target.id}`,
         type: "DELETE"
       });
+    };
 
-    const createStylist = async () =>
+    const createStylist = async function() {
       await $.post("/api/stylist", {
         stylistName: `${inputName.val()}`
       });
+    };
     if (`${event.target.getAttribute("data-btn")}` === "save") {
       createStylist();
       location.reload();
