@@ -67,7 +67,7 @@ $(document).ready(() => {
       stylistDetails.append(`<div class="col-4">${stylistName}</div>`);
       stylistDetails.append(`<div class="col-4">${createdAt}</div>`);
       stylistDetails.append(
-        `<div class="col-4"><button data-btn="delete" id="${id}">Delete</button></div>`
+        `<div class="col-4"><button class="btn-primary" data-btn="delete" id="${id}">Delete</button></div>`
       );
     });
     stylistDetails.append(
@@ -75,7 +75,7 @@ $(document).ready(() => {
     );
     stylistDetails.append(`<div class="col-4"></div>`);
     stylistDetails.append(
-      `<div class="col-4"><button data-btn="save" id="stylistSaveBtn">Save</button></div>`
+      `<div class="col-4 "><button class="btn-primary" data-btn="save" id="stylistSaveBtn">Save</button></div>`
     );
   };
 
@@ -89,10 +89,10 @@ $(document).ready(() => {
       const price = element.price;
       const duration = element.duration;
       serviceDetails.append(`<div class="col-6">${description}</div>`);
-      serviceDetails.append(`<div class="col-2">${price}</div>`);
+      serviceDetails.append(`<div class="col-2">$${price}</div>`);
       serviceDetails.append(`<div class="col-2">${duration}</div>`);
       serviceDetails.append(
-        `<div class="col-2"><button data-btn="delete" id="${id}">Delete</button></div>`
+        `<div class="col-2"><button class="btn-primary" data-btn="delete" id="${id}">Delete</button></div>`
       );
     });
     serviceDetails.append(
@@ -105,7 +105,7 @@ $(document).ready(() => {
       `<div class="col-2"><input type="text" placeholder="Enter Duration"  id="inputDuration"></div>`
     );
     serviceDetails.append(
-      `<div class="col-2"><button data-btn="save" id="saveBtn">Save</button></div>`
+      `<div class="col-2"><button class="btn-primary" data-btn="save" id="saveBtn">Save</button></div>`
     );
   };
   displayServices(getServices());
