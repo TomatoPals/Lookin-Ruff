@@ -188,7 +188,7 @@ module.exports = function(app) {
   app.delete("/api/services/", async (req, res) => {
     const dbService = await db.Services.destroy({
       where: {
-        price: req.body.price
+        id: req.body.id
       }
     });
     res.json(dbService);
