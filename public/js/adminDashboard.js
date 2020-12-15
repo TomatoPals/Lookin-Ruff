@@ -1,33 +1,63 @@
 $(document).ready(() => {
-  $("#serviceDelete").on("click", event => {
+  $("#serviceDetails").on("click", event => {
     event.preventDefault();
+    event.stopPropagation();
+    const inputDescription = $("#inputDescription");
+    const inputPrice = $("#inputPrice");
+    const inputDuration = $("#inputDuration");
     const deleteService = async () =>
       await $.ajax({
         url: `/api/services/${event.target.id}`,
         type: "DELETE"
       });
-    deleteService();
-    location.reload();
+
+    const createService = async () =>
+      await $.post("/api/services", {
+        description: `${inputDescription.val()}`,
+        price: `${inputPrice.val()}`,
+        duration: `${inputDuration.val()}`
+      });
+    if (`${event.target.getAttribute("data-btn")}` === "save") {
+      createService();
+      location.reload();
+    } else {
+      if (`${event.target.getAttribute("data-btn")}` === "delete") {
+        deleteService();
+        location.reload();
+      }
+    }
   });
+
   const getServices = async () => await $.get("/api/services");
 
   const displayServices = async response => {
     const servicePromise = Promise.resolve(response);
     const serviceJSON = await servicePromise;
-    const serviceDescription = $("#serviceDescription");
-    const servicePrice = $("#servicePrice");
-    const serviceDuration = $("#serviceDuration");
-    const serviceDelete = $("#serviceDelete");
+    const serviceDetails = $("#serviceDetails");
     serviceJSON.forEach(element => {
       const id = element.id;
       const description = element.description;
       const price = element.price;
       const duration = element.duration;
-      serviceDescription.append(`<p>${description}</p></br>`);
-      servicePrice.append(`<p>${price}</p></br>`);
-      serviceDuration.append(`<p>${duration}</p></br>`);
-      serviceDelete.append(`<p><button id="${id}">Delete</button></p>`);
+      serviceDetails.append(`<div class="col-6">${description}</div>`);
+      serviceDetails.append(`<div class="col-2">${price}</div>`);
+      serviceDetails.append(`<div class="col-2">${duration}</div>`);
+      serviceDetails.append(
+        `<div class="col-2"><button data-btn="delete" id="${id}">Delete</button></div>`
+      );
     });
+    serviceDetails.append(
+      `<div class="col-6"><input type="text" style="width:400px"  placeholder="Please enter a service description" id="inputDescription"></div>`
+    );
+    serviceDetails.append(
+      `<div class="col-2"><input type="text" placeholder="Enter Price" id="inputPrice"></div>`
+    );
+    serviceDetails.append(
+      `<div class="col-2"><input type="text" placeholder="Enter Duration"  id="inputDuration"></div>`
+    );
+    serviceDetails.append(
+      `<div class="col-2"><button data-btn="save" id="saveBtn">Save</button></div>`
+    );
   };
   displayServices(getServices());
 });
