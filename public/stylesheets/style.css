@@ -8,7 +8,7 @@ form.index{
   font-size: 20px;
   text-align: center;
   text-size-adjust: inherit;
-  background: linear-gradient(90deg,#b6eef2, #2eabe5);
+  background: linear-gradient(90deg,#151F44, #243572);
   border-radius: 10px;
   padding: 10px;
   text-decoration: none;
@@ -17,31 +17,19 @@ form.index{
   transition-duration: 0.4s;
   cursor: pointer;
 }
-.button1:hover {background: #ffab1a;}
+.button1:hover {
+   background: #e1eeff;
+   color: black;
+  }
   /* .button2:hover { background: linear-gradient(90deg,#a8e52e,#ecf004;} */
 
-
-.lookinRuffContainer {
-  /* background-image: url("pawPrint_W.png");
-  background-repeat: repeat-y repeat-x;
-  background: linear-gradient(90deg, #b6eef2, #2eabe5); */
-}
-.logoBg {
-  border-radius: 5px;
-  background: #2eabe5;
-  padding: 10px; 
-}
 .pawBg {
   border-radius: 5px;
   background: #2eabe5;
   padding: 10px; 
 }
 body {
-  /* height:1000 vh; */
-  /* background:linear-gradient(to bottom,#2eabe5,#b6eef2); */
   background-image: linear-gradient(90deg, #b6eef2, #2eabe5);
-  /* background-image:url("assets/pawPrint_B.png"):
-  background-image: url("pawPrint_B.png"); */
 }
 .pawPrint {
     background-image: url("assets/pawPrint_B.png");
@@ -66,12 +54,38 @@ body {
   background: linear-gradient(#ffab1a, #faf209); 
   color: rgb(17, 17, 17);
 }
-/* .container {
-  width: 150px;
-  height: 150px;
-  position: relative;
-  margin: 30px;
-} */
+
+.box2 {
+  font-family: 'Ubuntu', sans-serif;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  text-size-adjust: inherit;
+  background: linear-gradient(#151F44, #243572);
+  border-radius: 30px 30px 0px 0px;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.box3 {
+  font-family: 'Ubuntu', sans-serif;
+  color: rgb(17, 17, 17);
+  font-size: 20px;
+  text-align: center;
+  text-size-adjust: inherit;
+  background: rgb(238, 238, 238);
+  border-radius: 0px 0px 10px 10px;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
 .box {
   /* width: 100%;
   height: 100%; */
@@ -106,7 +120,7 @@ body {
   position: relative;
   margin: 30px;
   border-radius: 10px;
-margin: auto;
+  margin: auto;
 }
 .box1 {
   width: 100%;
