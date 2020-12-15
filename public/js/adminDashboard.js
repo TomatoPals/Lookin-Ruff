@@ -29,6 +29,30 @@ $(document).ready(() => {
   });
 
   const getServices = async () => await $.get("/api/services");
+  const getStylists = async () => await $.get("/api/stylist");
+
+  const displayStylists = async response => {
+    const stylistPromise = Promise.resolve(response);
+    const stylistJSON = await stylistPromise;
+    const stylistDetails = $("#stylistDetails");
+    stylistJSON.forEach(element => {
+      const id = element.id;
+      const stylistName = element.stylistName;
+      const createdAt = element.createdAt;
+      stylistDetails.append(`<div class="col-4">${stylistName}</div>`);
+      stylistDetails.append(`<div class="col-4">${createdAt}</div>`);
+      stylistDetails.append(
+        `<div class="col-4"><button data-btn="delete" id="${id}">Delete</button></div>`
+      );
+    });
+    stylistDetails.append(
+      `<div class="col-4"><input type="text" placeholder="Enter Name" id="inputName"></div>`
+    );
+    stylistDetails.append(`<div class="col-4"></div>`);
+    stylistDetails.append(
+      `<div class="col-4"><button data-btn="save" id="stylistSaveBtn">Save</button></div>`
+    );
+  };
 
   const displayServices = async response => {
     const servicePromise = Promise.resolve(response);
@@ -60,4 +84,5 @@ $(document).ready(() => {
     );
   };
   displayServices(getServices());
+  displayStylists(getStylists());
 });

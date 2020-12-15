@@ -153,6 +153,12 @@ module.exports = function(app) {
     }
   });
 
+  //route for getting stylists
+  app.get("/api/stylist", async (req, res) => {
+    const dbStylist = await db.Stylist.findAll({});
+    res.json(dbStylist);
+  });
+
   //route for deleteing a stylist
   app.delete("/api/stylist/", async (req, res) => {
     const dbStylist = await db.Stylist.destroy({
