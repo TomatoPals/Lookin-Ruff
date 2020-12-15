@@ -71,11 +71,11 @@ $(document).ready(() => {
       );
     });
     stylistDetails.append(
-      `<div class="col-4"><input type="text" placeholder="Enter Name" id="inputName"></div>`
+      "<div class=`col-4`><input type=`text` placeholder=`Enter Name` id='inputName'></div>"
     );
-    stylistDetails.append(`<div class="col-4"></div>`);
+    stylistDetails.append("<div class='col-4>'</div>");
     stylistDetails.append(
-      `<div class="col-4 "><button class="btn-primary" data-btn="save" id="stylistSaveBtn">Save</button></div>`
+      "<div class='col-4'><button class='btn-primary' data-btn='save' id='stylistSaveBtn'>Save</button></div>"
     );
   };
 
@@ -96,16 +96,16 @@ $(document).ready(() => {
       );
     });
     serviceDetails.append(
-      `<div class="col-6"><input type="text" style="width:400px"  placeholder="Please enter a service description" id="inputDescription"></div>`
+      "<div class='col-6'><input type='text' style='width:400px'  placeholder='Please enter a service description' id='inputDescription'></div>"
     );
     serviceDetails.append(
-      `<div class="col-2"><input type="text" placeholder="Enter Price" id="inputPrice"></div>`
+      "<div class='col-2'><input type='text' placeholder='Enter Price' id='inputPrice'></div>"
     );
     serviceDetails.append(
-      `<div class="col-2"><input type="text" placeholder="Enter Duration"  id="inputDuration"></div>`
+      "<div class='col-2'><input type='text' placeholder='Enter Duration' id='inputDuration'></div>"
     );
     serviceDetails.append(
-      `<div class="col-2"><button class="btn-primary" data-btn="save" id="saveBtn">Save</button></div>`
+      "<div class='col-2'><button class='btn-primary' data-btn='save' id='saveBtn'>Save</button></div>"
     );
   };
   displayServices(getServices());
