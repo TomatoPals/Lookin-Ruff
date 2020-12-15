@@ -1,173 +1,198 @@
 <!DOCTYPE html>
-<html lang='en'>
-
-<head>
+<html lang="en">
+  <head>
     <title>Calendar</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/calendar.css">
-</head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link href="stylesheets/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link href="stylesheets/calendar.css" rel="stylesheet" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div id="picker"></div>
-        <!-- <div>
+      <div id="picker"></div>
+      <!-- <div>
         <p>Selected date: <span id="selected-date"></span></p>
         <p>Selected time: <span id="selected-time"></span></p>
     </div> -->
-        <!-- The appointment Modal -->
-        <div id="apptModal" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <!-- Form start -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label class="control-label" for="time">Choose your stylist</label>
-                            <select id="time" name="time" class="form-control">
-                                <option value="Jill">Jill</option>
-                                <option value="Bart">Bart</option>
-                                <option value="Patrick">Patrick</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label class="control-label" for="appointmentfor">Appointment For</label>
-                            <select id="appointmentfor" name="appointmentfor" class="form-control">
-                                <option value="Service#1">Basic Wash</option>
-                                <option value="Service#2">Basic Wash + nails</option>
-                                <option value="Service#3">Premium Wash + nails </option>
-                                <option value="Service#4">Premium Wash + nails + brushed teeth</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Additional Notes</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <!-- Button -->
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <button id="singlebutton" name="singlebutton" class="btn btn-default">Book
-                                Appointment</button>
-                        </div>
-                    </div>
-                </div>
+      <!-- The appointment Modal -->
+      <div id="apptModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <!-- Form start -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label" for="time"
+                  >Choose your stylist</label
+                >
+                <select id="time" name="time" class="form-control">
+                  <option value="Jill">Jill</option>
+                  <option value="Bart">Bart</option>
+                  <option value="Patrick">Patrick</option>
+                </select>
+              </div>
             </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label" for="appointmentfor"
+                  >Appointment For</label
+                >
+                <select
+                  id="appointmentfor"
+                  name="appointmentfor"
+                  class="form-control"
+                >
+                  <option value="Service#1">Basic Wash</option>
+                  <option value="Service#2">Basic Wash + nails</option>
+                  <option value="Service#3">Premium Wash + nails </option>
+                  <option value="Service#4"
+                    >Premium Wash + nails + brushed teeth</option
+                  >
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1"
+                  >Additional Notes</label
+                >
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+            <!-- Button -->
+            <div class="col-md-12">
+              <div class="form-group">
+                <button
+                  id="singlebutton"
+                  name="singlebutton"
+                  class="btn btn-default"
+                >
+                  Book Appointment
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="../public/js/mark-your-calendar.js"></script>
+    <script type="text/javascript" src="/js/mark-your-calendar.js"></script>
     <script type="text/javascript">
-        (function ($) {
-            $('#picker').markyourcalendar({
-                availability: [
-                    // sat
-                    ['1:00', '2:00', '3:00', '4:00', '5:00'],
-                    // sun
-                    ['1:00', '2:00', '3:00', '4:00', '5:00'],
-                    // mon
-                    ['1:00', '2:00', '3:00', '4:00', '5:00'],
-                    // tues
-                    ['1:00', '2:00', '3:00', '4:00', '5:00'],
-                    // weds
-                    ['1:00', '2:00', '3:00', '4:00', '5:00'],
-                    // thurs
-                    ['1:00', '2:00', '3:00', '4:00', '5:00'],
-                    // fri
-                    ['1:00', '2:00', '3:00', '4:00', '5:00'],
-                ],
-                startDate: new Date("2020-10-25"),
-                onClick: function (ev, data) {
-                    // data is a list of datetimes ex ["2020-10-25 2:00"]
-                    // ex d =  2020-10-26 (yyyy-mm-dd)
-                    var d = data[0].split(' ')[0];
-                    // ex: t = 4:00
-                    var t = data[0].split(' ')[1];
-                    $('#selected-date').html(d);
-                    $('#selected-time').html(t);
-                },
-                onClickNavigator: function (ev, instance) {
-                    var arr = [
-                        [
-                            ['4:00', '5:00', '6:00', '7:00', '8:00'],
-                            ['1:00', '5:00'],
-                            ['2:00', '5:00'],
-                            ['3:30'],
-                            ['2:00', '5:00'],
-                            ['2:00', '5:00'],
-                            ['2:00', '5:00']
-                        ],
-                        [
-                            ['2:00', '5:00'],
-                            ['4:00', '5:00', '6:00', '7:00', '8:00'],
-                            ['4:00', '5:00'],
-                            ['2:00', '5:00'],
-                            ['2:00', '5:00'],
-                            ['2:00', '5:00'],
-                            ['2:00', '5:00']
-                        ],
-                        [
-                            ['4:00', '5:00'],
-                            ['4:00', '5:00'],
-                            ['4:00', '5:00', '6:00', '7:00', '8:00'],
-                            ['3:00', '6:00'],
-                            ['3:00', '6:00'],
-                            ['3:00', '6:00'],
-                            ['3:00', '6:00']
-                        ],
-                        [
-                            ['4:00', '5:00'],
-                            ['4:00', '5:00'],
-                            ['4:00', '5:00'],
-                            ['4:00', '5:00', '6:00', '7:00', '8:00'],
-                            ['4:00', '5:00'],
-                            ['4:00', '5:00'],
-                            ['4:00', '5:00']
-                        ],
-                        [
-                            ['4:00', '6:00'],
-                            ['4:00', '6:00'],
-                            ['4:00', '6:00'],
-                            ['4:00', '6:00'],
-                            ['4:00', '5:00', '6:00', '7:00', '8:00'],
-                            ['4:00', '6:00'],
-                            ['4:00', '6:00']
-                        ],
-                        [
-                            ['3:00', '6:00'],
-                            ['3:00', '6:00'],
-                            ['3:00', '6:00'],
-                            ['3:00', '6:00'],
-                            ['3:00', '6:00'],
-                            ['4:00', '5:00', '6:00', '7:00', '8:00'],
-                            ['3:00', '6:00']
-                        ],
-                        [
-                            ['3:00', '4:00'],
-                            ['3:00', '4:00'],
-                            ['3:00', '4:00'],
-                            ['3:00', '4:00'],
-                            ['3:00', '4:00'],
-                            ['3:00', '4:00'],
-                            ['4:00', '5:00', '6:00', '7:00', '8:00']
-                        ]
-                    ]
-                    var rn = Math.floor(Math.random() * 10) % 7;
-                    instance.setAvailability(arr[rn]);
-                }
-            });
-        })(jQuery);
+      (function($) {
+        $("#picker").markyourcalendar({
+          availability: [
+            // sat
+            ["1:00", "2:00", "3:00", "4:00", "5:00"],
+            // sun
+            ["1:00", "2:00", "3:00", "4:00", "5:00"],
+            // mon
+            ["1:00", "2:00", "3:00", "4:00", "5:00"],
+            // tues
+            ["1:00", "2:00", "3:00", "4:00", "5:00"],
+            // weds
+            ["1:00", "2:00", "3:00", "4:00", "5:00"],
+            // thurs
+            ["1:00", "2:00", "3:00", "4:00", "5:00"],
+            // fri
+            ["1:00", "2:00", "3:00", "4:00", "5:00"]
+          ],
+          startDate: new Date("2020-10-25"),
+          onClick: function(ev, data) {
+            // data is a list of datetimes ex ["2020-10-25 2:00"]
+            // ex d =  2020-10-26 (yyyy-mm-dd)
+            var d = data[0].split(" ")[0];
+            // ex: t = 4:00
+            var t = data[0].split(" ")[1];
+            $("#selected-date").html(d);
+            $("#selected-time").html(t);
+          },
+          onClickNavigator: function(ev, instance) {
+            var arr = [
+              [
+                ["4:00", "5:00", "6:00", "7:00", "8:00"],
+                ["1:00", "5:00"],
+                ["2:00", "5:00"],
+                ["3:30"],
+                ["2:00", "5:00"],
+                ["2:00", "5:00"],
+                ["2:00", "5:00"]
+              ],
+              [
+                ["2:00", "5:00"],
+                ["4:00", "5:00", "6:00", "7:00", "8:00"],
+                ["4:00", "5:00"],
+                ["2:00", "5:00"],
+                ["2:00", "5:00"],
+                ["2:00", "5:00"],
+                ["2:00", "5:00"]
+              ],
+              [
+                ["4:00", "5:00"],
+                ["4:00", "5:00"],
+                ["4:00", "5:00", "6:00", "7:00", "8:00"],
+                ["3:00", "6:00"],
+                ["3:00", "6:00"],
+                ["3:00", "6:00"],
+                ["3:00", "6:00"]
+              ],
+              [
+                ["4:00", "5:00"],
+                ["4:00", "5:00"],
+                ["4:00", "5:00"],
+                ["4:00", "5:00", "6:00", "7:00", "8:00"],
+                ["4:00", "5:00"],
+                ["4:00", "5:00"],
+                ["4:00", "5:00"]
+              ],
+              [
+                ["4:00", "6:00"],
+                ["4:00", "6:00"],
+                ["4:00", "6:00"],
+                ["4:00", "6:00"],
+                ["4:00", "5:00", "6:00", "7:00", "8:00"],
+                ["4:00", "6:00"],
+                ["4:00", "6:00"]
+              ],
+              [
+                ["3:00", "6:00"],
+                ["3:00", "6:00"],
+                ["3:00", "6:00"],
+                ["3:00", "6:00"],
+                ["3:00", "6:00"],
+                ["4:00", "5:00", "6:00", "7:00", "8:00"],
+                ["3:00", "6:00"]
+              ],
+              [
+                ["3:00", "4:00"],
+                ["3:00", "4:00"],
+                ["3:00", "4:00"],
+                ["3:00", "4:00"],
+                ["3:00", "4:00"],
+                ["3:00", "4:00"],
+                ["4:00", "5:00", "6:00", "7:00", "8:00"]
+              ]
+            ];
+            var rn = Math.floor(Math.random() * 10) % 7;
+            instance.setAvailability(arr[rn]);
+          }
+        });
+      })(jQuery);
     </script>
-</body>
-
+  </body>
 </html>
