@@ -218,10 +218,10 @@ module.exports = function(app) {
   app.get("/api/temperment", (req, res) => {
     // findAll returns all entries for a table when used with no options
     db.dogTemperment.findAll({}).then(dbTemperment => {
-      // We have access to the todos as an argument inside of the callback function
       res.json(dbTemperment);
     });
   });
+  
   //route for deleting a workday
   app.delete("/api/workday/", async (req, res) => {
     const dbWorkday = await db.Workday.destroy({
