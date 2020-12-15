@@ -68,11 +68,10 @@ module.exports = function(app) {
   //Route for sending email
   app.post("/api/send", (req, res) => {
     const transporter = nodemailer.createTransport({
-      host: "smtp.ethereal.email",
-      port: 587,
+      service: "gmail",
       auth: {
-        user: "rylee.mueller@ethereal.email",
-        pass: "X5cx2ym18s4NrQZGzE"
+        user: process.env.EMAIL_LOGIN,
+        pass: process.env.EMAIL_PASSWORD
       }
     });
     const mailOptions = {
