@@ -185,10 +185,10 @@ module.exports = function(app) {
   });
 
   //route for deleting a service
-  app.delete("/api/services/", async (req, res) => {
+  app.delete("/api/services/:id", async (req, res) => {
     const dbService = await db.Services.destroy({
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     });
     res.json(dbService);

@@ -1,14 +1,13 @@
 $(document).ready(() => {
   $("#serviceDelete").on("click", event => {
     event.preventDefault();
-    $.ajax({
-      url: "/api/services",
-      type: "DELETE",
-      id: `${event.target.id}`
-    });
-
-    // location.reload();
-    console.log(event.target.id);
+    const deleteService = async () =>
+      await $.ajax({
+        url: `/api/services/${event.target.id}`,
+        type: "DELETE"
+      });
+    deleteService();
+    location.reload();
   });
   const getServices = async () => await $.get("/api/services");
 
