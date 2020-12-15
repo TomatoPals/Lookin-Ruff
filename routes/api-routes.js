@@ -160,10 +160,10 @@ module.exports = function(app) {
   });
 
   //route for deleteing a stylist
-  app.delete("/api/stylist/", async (req, res) => {
+  app.delete("/api/stylist/:id", async (req, res) => {
     const dbStylist = await db.Stylist.destroy({
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     });
     res.json(dbStylist);

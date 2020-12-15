@@ -28,6 +28,31 @@ $(document).ready(() => {
     }
   });
 
+  $("#stylistDetails").on("click", event => {
+    event.preventDefault();
+    event.stopPropagation();
+    const inputName = $("#inputName");
+    const deleteStylist = async () =>
+      await $.ajax({
+        url: `/api/stylist/${event.target.id}`,
+        type: "DELETE"
+      });
+
+    const createStylist = async () =>
+      await $.post("/api/stylist", {
+        stylistName: `${inputName.val()}`
+      });
+    if (`${event.target.getAttribute("data-btn")}` === "save") {
+      createStylist();
+      location.reload();
+    } else {
+      if (`${event.target.getAttribute("data-btn")}` === "delete") {
+        deleteStylist();
+        location.reload();
+      }
+    }
+  });
+
   const getServices = async () => await $.get("/api/services");
   const getStylists = async () => await $.get("/api/stylist");
 
