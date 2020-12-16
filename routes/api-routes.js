@@ -132,7 +132,7 @@ module.exports = function(app) {
     }
   });
 
-  //route for updateing appointment info
+  //route for updating appointment info
   app.put("/api/appointments", async (req, res) => {
     const dbAppointment = await db.Appointment.update(req.body, {
       where: {
