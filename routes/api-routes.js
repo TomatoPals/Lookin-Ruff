@@ -102,7 +102,7 @@ module.exports = function(app) {
     } = req.body;
 
     try {
-      const createAppointment = await db.Appointment.create({
+      const createAppointment = await db.appointments.create({
         userId,
         stylistId,
         appointmentDate,
@@ -124,17 +124,17 @@ module.exports = function(app) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      db.Appointment.findAll({ where: { id: `${req.user.id}` } }).then(
-        dbget => {
+      db.appointments
+        .findAll({ where: { id: `${req.user.id}` } })
+        .then(dbget => {
           res.json(dbget);
-        }
-      );
+        });
     }
   });
 
   //route for updateing appointment info
   app.put("/api/appointments", async (req, res) => {
-    const dbAppointment = await db.Appointment.update(req.body, {
+    const dbAppointment = await db.appointments.update(req.body, {
       where: {
         userId: req.body.user_id
       }
@@ -145,7 +145,7 @@ module.exports = function(app) {
   //route for adding a stylist
   app.post("/api/stylist", async (req, res) => {
     try {
-      const createStylist = await db.Stylist.create({
+      const createStylist = await db.stylists.create({
         stylistName: req.body.stylistName
       });
       res.json(createStylist);
@@ -156,13 +156,13 @@ module.exports = function(app) {
 
   //route for getting stylists
   app.get("/api/stylist", async (req, res) => {
-    const dbStylist = await db.Stylist.findAll({});
+    const dbStylist = await db.stylists.findAll({});
     res.json(dbStylist);
   });
 
   //route for deleteing a stylist
   app.delete("/api/stylist/:id", async (req, res) => {
-    const dbStylist = await db.Stylist.destroy({
+    const dbStylist = await db.stylists.destroy({
       where: {
         id: req.params.id
       }
@@ -174,7 +174,7 @@ module.exports = function(app) {
   app.post("/api/services", async (req, res) => {
     const { description, price, duration } = req.body;
     try {
-      const createService = await db.Services.create({
+      const createService = await db.services.create({
         description,
         price,
         duration
@@ -187,13 +187,13 @@ module.exports = function(app) {
 
   //route for getting services
   app.get("/api/services", async (req, res) => {
-    const dbServices = await db.Services.findAll({});
+    const dbServices = await db.services.findAll({});
     res.json(dbServices);
   });
 
   //route for deleting a service
   app.delete("/api/services/:id", async (req, res) => {
-    const dbService = await db.Services.destroy({
+    const dbService = await db.services.destroy({
       where: {
         id: req.params.id
       }
@@ -203,7 +203,7 @@ module.exports = function(app) {
 
   //route for updating a service
   app.put("/api/services", async (req, res) => {
-    const dbService = await db.Services.update(req.body, {
+    const dbService = await db.services.update(req.body, {
       where: {
         id: req.body.id
       }
@@ -215,7 +215,7 @@ module.exports = function(app) {
   app.post("/api/workday", async (req, res) => {
     const { workday, startTime, endTime, active } = req.body;
     try {
-      const createWorkday = await db.WorkDay.create({
+      const createWorkday = await db.workingDays.create({
         workday,
         startTime,
         endTime,
@@ -230,14 +230,14 @@ module.exports = function(app) {
   // Route for populating the temperments dropdown
   app.get("/api/temperment", (req, res) => {
     // findAll returns all entries for a table when used with no options
-    db.dogTemperment.findAll({}).then(dbTemperment => {
+    db.dogTemperments.findAll({}).then(dbTemperment => {
       // We have access to the todos as an argument inside of the callback function
       res.json(dbTemperment);
     });
   });
   //route for deleting a workday
   app.delete("/api/workday/", async (req, res) => {
-    const dbWorkday = await db.Workday.destroy({
+    const dbWorkday = await db.workingDays.destroy({
       where: {
         id: req.body.id
       }
@@ -247,7 +247,7 @@ module.exports = function(app) {
 
   //route for updating a workday
   app.put("/api/workday", async (req, res) => {
-    const dbWorkday = await db.Workday.update(req.body, {
+    const dbWorkday = await db.workingDays.update(req.body, {
       where: {
         id: req.body.id
       }
@@ -259,7 +259,7 @@ module.exports = function(app) {
   app.post("/api/dognotes", async (req, res) => {
     const { userId, note } = req.body;
     try {
-      const createDogNote = await db.DogNotes.create({
+      const createDogNote = await db.dogNotes.create({
         userId,
         note
       });
@@ -271,7 +271,7 @@ module.exports = function(app) {
 
   //route for deleting a dog note
   app.delete("/api/dognotes/", async (req, res) => {
-    const dbDogNotes = await db.DogNotes.destroy({
+    const dbDogNotes = await db.dogNotes.destroy({
       where: {
         id: req.body.id
       }
@@ -281,7 +281,7 @@ module.exports = function(app) {
 
   //route for updating a dog note
   app.put("/api/dognotes", async (req, res) => {
-    const dbDogNotes = await db.DogNotes.update(req.body, {
+    const dbDogNotes = await db.dogNotes.update(req.body, {
       where: {
         id: req.body.id
       }
@@ -291,7 +291,7 @@ module.exports = function(app) {
 
   //route for getting a dog note
   app.get("/api/dognotes/:id", async (req, res) => {
-    const dbDogNotes = await db.DogNotes.findOne({
+    const dbDogNotes = await db.dogNotes.findOne({
       where: {
         id: req.params.id
       }

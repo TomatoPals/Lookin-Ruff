@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const DogNotes = sequelize.define("DogNotes", {
+  const dogNotes = sequelize.define("dogNotes", {
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -9,5 +9,5 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   });
-  return DogNotes;
+  return dogNotes;
 };
