@@ -6,8 +6,8 @@
   };
 
   $.fn.markyourcalendar = function(opts) {
-    const prevHtml = "<div id='myc-prev-week'></div>";
-    const nextHtml = "<div id='myc-next-week'></div>";
+    const prevHtml = "<div id='myc-prev-week'><</div>";
+    const nextHtml = "<div id='myc-next-week'>></div>";
     const defaults = {
       availability: [[], [], [], [], [], [], []],
       isMultiple: false,
