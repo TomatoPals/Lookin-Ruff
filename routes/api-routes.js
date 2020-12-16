@@ -214,14 +214,14 @@ module.exports = function(app) {
     }
   });
 
-  // Route for populating the temperments dropdown
-  app.get("/api/temperment", (req, res) => {
+  // Route for populating the temperaments dropdown
+  app.get("/api/temperament", (req, res) => {
     // findAll returns all entries for a table when used with no options
-    db.dogTemperment.findAll({}).then(dbTemperment => {
-      res.json(dbTemperment);
+    db.dogTemperament.findAll({}).then(dbTemperament => {
+      res.json(dbTemperament);
     });
   });
-  
+
   //route for deleting a workday
   app.delete("/api/workday/", async (req, res) => {
     const dbWorkday = await db.Workday.destroy({

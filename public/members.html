@@ -1,117 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Passport Authentication</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
+    />
+    <link href="stylesheets/style.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <title>Passport Authentication</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css" />
-  <link href="stylesheets/style.css" rel="stylesheet" />
-</head>
-
-<body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header pull-right">
-        <a class="navbar-brand" href="/logout">
-          Logout
-        </a>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header pull-right">
+          <a class="navbar-brand" href="/logout">
+            Logout
+          </a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <div class="container">
-    <h2 style="padding: 0 0 30px 0;">Welcome <span id="welcome"></span></h2>
-  </div>
-  <form>
     <div class="container">
-      <h3 style="padding: 0 0 20px 0;">Customer Info</h3>
-      <!-- customer info line 1 -->
-      <div class="row">
-        <div class="col-sm-3">
-          <label for="firstName">First name</label>
-          <input type="text" id="firstName" class="form-control" placeholder="First name">
+      <h2 style="padding: 0 0 30px 0;">Welcome <span id="welcome"></span></h2>
+    </div>
+    <form>
+      <div class="container">
+        <h3 style="padding: 0 0 20px 0;">Customer Info</h3>
+        <!-- customer info line 1 -->
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="firstName">First name</label>
+            <input
+              type="text"
+              id="firstName"
+              class="form-control"
+              placeholder="First name"
+            />
+          </div>
+          <div class="col-sm-3">
+            <label for="lastName">Last name</label>
+            <input
+              type="text"
+              id="lastName"
+              class="form-control"
+              placeholder="Last name"
+            />
+          </div>
+          <div class="col-sm-3">
+            <label for="email">Email address</label>
+            <input
+              type="text"
+              id="email"
+              class="form-control"
+              placeholder="Last name"
+            />
+          </div>
+          <div class="col-sm-3">
+            <label for="phone">Phone</label>
+            <input
+              type="text"
+              id="phone"
+              class="form-control"
+              placeholder="Phone"
+            />
+          </div>
         </div>
-        <div class="col-sm-3">
-          <label for="lastName">Last name</label>
-          <input type="text" id="lastName" class="form-control" placeholder="Last name">
+        <br />
+        <!-- customer info line 2 -->
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="address">Address</label>
+            <input
+              type="text"
+              id="address"
+              class="form-control"
+              placeholder="Address"
+            />
+          </div>
+          <div class="col-sm-3">
+            <label for="address2">Address 2</label>
+            <input
+              type="text"
+              id="address2"
+              class="form-control"
+              placeholder="Address 2"
+            />
+          </div>
+          <div class="col-sm-2">
+            <label for="city">City</label>
+            <input
+              type="text"
+              id="city"
+              class="form-control"
+              placeholder="City"
+            />
+          </div>
+          <div class="col-sm-2">
+            <label for="state">State</label>
+            <input
+              type="text"
+              id="state"
+              class="form-control"
+              placeholder="State"
+            />
+          </div>
+          <div class="col-sm-2">
+            <label for="zipCode">Zipcode</label>
+            <input
+              type="text"
+              id="zipCode"
+              class="form-control"
+              placeholder="Zip"
+            />
+          </div>
         </div>
-        <div class="col-sm-3">
-          <label for="email">Email address</label>
-          <input type="text" id="email" class="form-control" placeholder="Last name">
-        </div>
-        <div class="col-sm-3">
-          <label for="phone">Phone</label>
-          <input type="text" id="phone" class="form-control" placeholder="Phone">
-        </div>
-      </div>
-      <br>
-      <!-- customer info line 2 -->
-      <div class="row">
-        <div class="col-sm-3">
-          <label for="address">Address</label>
-          <input type="text" id="address" class="form-control" placeholder="Address">
-        </div>
-        <div class="col-sm-3">
-          <label for="address2">Address 2</label>
-          <input type="text" id="address2" class="form-control" placeholder="Address 2">
-        </div>
-        <div class="col-sm-2">
-          <label for="city">City</label>
-          <input type="text" id="city" class="form-control" placeholder="City">
-        </div>
-        <div class="col-sm-2">
-          <label for="state">State</label>
-          <input type="text" id="state" class="form-control" placeholder="State">
-        </div>
-        <div class="col-sm-2">
-          <label for="zipCode">Zipcode</label>
-          <input type="text" id="zipCode" class="form-control" placeholder="Zip">
-        </div>
-      </div>
-      <!-- dog info line 1 -->
-      <h3 style="padding: 50px 0 20px 0;">Dog Info</h3>
-      <div class="row">
-        <div class="col-sm-3">
-          <label for="dogName">Dog name</label>
-          <input type="text" id="dogName" class="form-control" placeholder="dogName">
-        </div>
-        <div class="col-sm-3">
-          <label for="lastName">Dog Breed</label>
-          <input type="text" id="lastName" class="form-control">
-        </div>
-        <div class="col-sm-3">
-          <div class="dropdown">
-            <button id= 'temperamentBtn' class="dropbtn">Temperament</button>
-            <div id="myDropdown" class="dropdown-content">
-              <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-              <a href="#about">About</a>
+        <!-- dog info line 1 -->
+        <h3 style="padding: 50px 0 20px 0;">Dog Info</h3>
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="dogName">Dog name</label>
+            <input
+              type="text"
+              id="dogName"
+              class="form-control"
+              placeholder="dogName"
+            />
+          </div>
+          <div class="col-sm-3">
+            <label for="lastName">Dog Breed</label>
+            <input type="text" id="lastName" class="form-control" />
+          </div>
+          <div class="col-sm-3">
+            <div class="dropdown">
+              <button id="temperamentBtn" class="dropbtn">Temperament</button>
+              <div id="myDropdown" class="dropdown-content">
+                <input
+                  type="text"
+                  placeholder="Search.."
+                  id="myInput"
+                  onkeyup="filterFunction()"
+                />
+                <!-- <a href="#about">About</a>
               <a href="#base">Base</a>
               <a href="#blog">Blog</a>
               <a href="#contact">Contact</a>
               <a href="#custom">Custom</a>
               <a href="#support">Support</a>
-              <a href="#tools">Tools</a>
+              <a href="#tools">Tools</a> -->
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <br>
-      <!-- dog info line 1 -->
-      <div class="row">
-        <div class="col-lg-6">
-          <label for="dogNote">Dog Notes</label>
-          <textarea class="form-control" id="dogNote" rows="4"></textarea>
+        <br />
+        <!-- dog info line 1 -->
+        <div class="row">
+          <div class="col-lg-6">
+            <label for="dogNote">Dog Notes</label>
+            <textarea class="form-control" id="dogNote" rows="4"></textarea>
+          </div>
         </div>
       </div>
-    </div>
-  </form>
-  <!-- <div>
+    </form>
+    <!-- <div>
       <button id="emailTest">send email</button>
     </div> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/members.js"></script>
-  <script type="text/javascript" src="js/email.js"></script>
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/members.js"></script>
+    <script type="text/javascript" src="js/email.js"></script>
+  </body>
 </html>
