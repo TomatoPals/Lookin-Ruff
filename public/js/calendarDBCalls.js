@@ -19,44 +19,34 @@ $(document).ready(() => {
   };
   displayStylists(getStylist());
 
-  // const getService = async () => await $.get("/api/services");
-  // const displayServices = async response => {
-  //   const servicePromise = Promise.resolve(response);
-  //   const serviceJSON = await servicePromise;
-  //   serviceJSON.forEach(service => {
-  //     serviceView.append(
-  //       `<option id="${service.id}" value="${service.description}">${service.description}</option>`
-  //     );
-  //   });
-  //   console.log(serviceJSON);
-  // };
-  // displayServices(getService());
+  const getService = async () => await $.get("/api/services");
+  const displayServices = async response => {
+    const servicePromise = Promise.resolve(response);
+    const serviceJSON = await servicePromise;
+    serviceJSON.forEach(service => {
+      serviceView.append(
+        `<option id="${service.id}" value="${service.description}">${service.description}</option>`
+      );
+    });
+  };
+  displayServices(getService());
 
-  // // testing
-  // $("#bookAppointmentBtn").on("click", event => {
-  //   event.preventDefault();
-  //   event.stopPropagation();
-  //   const appointmentfor = $("#inputDescription");
-  //   const inputPrice = $("#inputPrice");
-  //   const inputDuration = $("#inputDuration");
-  //   const deleteService = async function() {
-  //     await $.ajax({ url: `/api/services/${event.target.id}`, type: "DELETE" });
-  //   };
-  //   const createService = async function() {
-  //     await $.post("/api/services", {
-  //       description: `${inputDescription.val()}`,
-  //       price: `${inputPrice.val()}`,
-  //       duration: `${inputDuration.val()}`
-  //     });
-  //   };
-  //   if (`${event.target.getAttribute("data-btn")}` === "save") {
-  //     createService();
-  //     location.reload();
-  //   } else {
-  //     if (`${event.target.getAttribute("data-btn")}` === "delete") {
-  //       deleteService();
-  //       location.reload();
-  //     }
-  //   }
-  // });
+  // testing
+  //   $("#bookAppointmentBtn").on("click", event => {
+  //     event.preventDefault();
+  //     event.stopPropagation();
+  //     const appointmentfor = $("#appointmentfor");
+  //     console.log("appointmentfor:", appointmentfor);
+  //     const stylist = $("#stylist");
+  //     console.log("stylist:", stylist);
+  //     const bookAppointment = async function() {
+  //       await $.post("/api/appointment", {
+  //         // userId: `${}`,
+  //         stylistId: `${stylistID.val()}`,
+  //         appointmentfor: `${appointmentfor.val()}`,
+  //         // appointmentDate: `${}`,
+  //         appointmentTime: `${}`
+  //       });
+  //     };
+  //   });
 });
