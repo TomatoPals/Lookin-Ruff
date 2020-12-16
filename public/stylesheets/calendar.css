@@ -28,9 +28,9 @@
 }
 
 #myc-prev-week {
-  border: 1px solid #3700fd;
+  border: 1px solid #ffffff;
   border-radius: 80px;
-  color: #3700fd;
+  color: #ffffff;
   cursor: pointer;
   float: left;
   font-size: 1.6em;
@@ -41,9 +41,9 @@
 }
 
 #myc-next-week {
-  border: 1px solid #3700fd;
+  border: 1px solid #ffffff;
   border-radius: 80px;
-  color: #3700fd;
+  color: #ffffff;
   cursor: pointer;
   float: right;
   font-size: 1.6em;
