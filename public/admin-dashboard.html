@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
     />
-    <link href="stylesheets/style.css" rel="stylesheet" />
+    <link href="stylesheets/admin-dashboard.css" rel="stylesheet" />
     <title>Admin Dashboard</title>
   </head>
   <body>
@@ -15,7 +17,24 @@
       <h1>
         Services
       </h1>
-      <div id="servicesContent"></div>
+      <div class="container-fluid" id="servicesView">
+        <div class="row" id="serviceDetails">
+          <div class="col-6" id="serviceDescription"><h2>Description</h2></div>
+          <div class="col-2" id="servicePrice"><h2>Price</h2></div>
+          <div class="col-2" id="serviceDuration"><h2>Duration</h2></div>
+          <div class="col-2" id="serviceDelete"><h2></h2></div>
+        </div>
+      </div>
+      <h1>
+        Stylists
+      </h1>
+      <div class="container-fluid" id="stylistView">
+        <div class="row" id="stylistDetails">
+          <div class="col-4" id="stylistName"><h2>Name</h2></div>
+          <div class="col-4" id="stylistCreation"><h2>Created</h2></div>
+          <div class="col-4" id="stylistDelete"><h2></h2></div>
+        </div>
+      </div>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

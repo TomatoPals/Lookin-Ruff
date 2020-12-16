@@ -68,11 +68,10 @@ module.exports = function(app) {
   //Route for sending email
   app.post("/api/send", (req, res) => {
     const transporter = nodemailer.createTransport({
-      host: "smtp.ethereal.email",
-      port: 587,
+      service: "gmail",
       auth: {
-        user: "rylee.mueller@ethereal.email",
-        pass: "X5cx2ym18s4NrQZGzE"
+        user: process.env.EMAIL_LOGIN,
+        pass: process.env.EMAIL_PASSWORD
       }
     });
     const mailOptions = {
@@ -153,11 +152,17 @@ module.exports = function(app) {
     }
   });
 
+  //route for getting stylists
+  app.get("/api/stylist", async (req, res) => {
+    const dbStylist = await db.Stylist.findAll({});
+    res.json(dbStylist);
+  });
+
   //route for deleteing a stylist
-  app.delete("/api/stylist/", async (req, res) => {
+  app.delete("/api/stylist/:id", async (req, res) => {
     const dbStylist = await db.Stylist.destroy({
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     });
     res.json(dbStylist);
@@ -185,10 +190,10 @@ module.exports = function(app) {
   });
 
   //route for deleting a service
-  app.delete("/api/services/", async (req, res) => {
+  app.delete("/api/services/:id", async (req, res) => {
     const dbService = await db.Services.destroy({
       where: {
-        price: req.body.price
+        id: req.params.id
       }
     });
     res.json(dbService);
