@@ -1,4 +1,198 @@
 form.signup,
-form.login {
+form.login, 
+form.index{
   margin-top: 50px;
+}
+.button {
+  /* font-family: 'Ubuntu', sans-serif; */
+  font-size: 20px;
+  text-align: center;
+  text-size-adjust: inherit;
+  background: linear-gradient(90deg,#151F44, #243572);
+  border-radius: 10px;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1:hover {
+   background: #e1eeff;
+   color: black;
+  }
+  /* .button2:hover { background: linear-gradient(90deg,#a8e52e,#ecf004;} */
+
+.pawBg {
+  border-radius: 5px;
+  background: #2eabe5;
+  padding: 10px; 
+}
+body {
+  background-image: linear-gradient(90deg, #b6eef2, #2eabe5);
+}
+.pawPrint {
+    background-image: url("assets/pawPrint_B.png");
+    background-repeat: repeat-y repeat-x;
+}
+.button2 {
+  font-family: 'Ubuntu', sans-serif;
+  color: rgb(17, 17, 17);
+  font-size: 20px;
+  text-align: center;
+  text-size-adjust: inherit;
+  background: linear-gradient(#faf209, #ffab1a);
+  border-radius: 10px;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button3:hover {
+  background: linear-gradient(#ffab1a, #faf209); 
+  color: rgb(17, 17, 17);
+}
+
+.box2 {
+  font-family: 'Ubuntu', sans-serif;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  text-size-adjust: inherit;
+  background: linear-gradient(#151F44, #243572);
+  border-radius: 30px 30px 0px 0px;
+  
+  padding-left: 50px;
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.box3 {
+  font-family: 'Ubuntu', sans-serif;
+  color: rgb(17, 17, 17);
+  font-size: 20px;
+  text-align: center;
+  text-size-adjust: inherit;
+  background: rgb(238, 238, 238);
+  border-radius: 0px 0px 10px 10px;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  margin: auto;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.box {
+  /* width: 100%;
+  height: 100%; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  /* background: #0057e3; */
+}
+.overlay {
+  z-index: 9;
+  margin: 0px;
+  /* background: #009938; */
+}
+.what {
+  background-image:url(assets/pawPrint_W.png);
+  width:1000px;
+  height:1000px;
+  border:1px solid #2eabe5;
+  padding:10px; 
+  opacity:20%"
+}
+
+.center {
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+}
+.container1 {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  margin: 30px;
+  border-radius: 10px;
+  margin: auto;
+}
+.box1 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  background: #2eabe5;
+  border-radius: 10px;
+}
+.overlay1 {
+  width: 90%;
+  height: 90%;
+  z-index: 9;
+  margin: 8px;
+  background: #ffffff;
+
+}
+.shadow1 {
+	margin: 40px;
+	background-color: rgb(68,68,68); /* Needed for IEs */
+
+	-moz-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+	-webkit-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+	box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+
+	filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+	zoom: 1;
+}
+.shadow1 .content {
+	position: relative; /* This protects the inner element from being blurred */
+	padding: 100px;
+	background-color: #DDD;
+}
+
+.module {
+  width: 200px;
+  height: 200px;
+  background: #bbbbbb;
+  position: relative;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 
+    0 0 0 10px rgb(0, 195, 255),
+    0 0 0 15px hsl(0, 0%, 60%),
+    0 0 0 20px hsl(0, 0%, 70%),
+    0 0 0 25px hsl(0, 0%, 80%),
+    0 0 0 30px hsl(0, 0%, 90%);
+}
+.module1 {
+  width: 200px;
+  height: 200px;
+  background: #ffffff;
+  position: relative;
+  border: 5px solid #bbbbbb;  
+  margin: 20px;
+  border-radius: 10px;
+}
+.module1:after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: #2eabe5;
+  z-index: -1;
+  border-radius: 10px;
+}
+.container {
+
 }
