@@ -427,6 +427,6 @@ INSERT INTO dogBreedType(breedTypeName,breedTypeId,createdAt) VALUES ('Water Dog
 
 /*sample appointments*/
 
-INSERT INTO appointments (userId, stylistId, appointmentDate, serviceId, createdAt) VALUES ('1', '1', '2020-12-12 01:04:43', '2', '2020-12-12 01:04:43');
-INSERT INTO appointments (userId, stylistId, appointmentDate, serviceId, createdAt) VALUES ('1', '1', '2020-12-12 01:04:43', '1', '2020-12-12 01:04:43');
+INSERT INTO appointments (userId, stylistId, appointmentDate, appointmentTime, serviceId, createdAt) VALUES ('1', '1', '2020-12-12', '1:30','2', '2020-12-12 01:04:43');
+INSERT INTO appointments (userId, stylistId, appointmentDate, appointmentTime, serviceId, createdAt) VALUES ('1', '1', '2020-12-12', '4:00','1', '2020-12-12 01:04:43');
 

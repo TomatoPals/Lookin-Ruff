@@ -83,6 +83,7 @@ CREATE TABLE appointments (
     userId INT(11) NOT NULL,
     stylistId INT(11) NOT NULL,
     appointmentDate VARCHAR(50) NOT NULL,
+    appointmentTime VARCHAR(50) NOT NULL,
     serviceId INT(11) DEFAULT NULL,
     createdAt DATETIME NOT NULL,
     complete BOOLEAN DEFAULT NULL,
