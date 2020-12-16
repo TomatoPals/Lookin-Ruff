@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 module.exports = (sequelize, DataTypes) => {
   const Appointment = sequelize.define("Appointment", {
     userId: {
