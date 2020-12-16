@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Appointment = sequelize.define("Appointment", {
+  const appointments = sequelize.define("appointments", {
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -25,5 +25,5 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: false
     }
   });
-  return Appointment;
+  return appointments;
 };

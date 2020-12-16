@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Services = sequelize.define("Services", {
+  const services = sequelize.define("services", {
     description: {
       type: DataTypes.STRING,
       allowNull: false
@@ -13,5 +13,5 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: null
     }
   });
-  return Services;
+  return services;
 };

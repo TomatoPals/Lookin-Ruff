@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const WorkingDays = sequelize.define("WorkingDays", {
+  const workingDays = sequelize.define("workingDays", {
     workday: {
       type: DataTypes.STRING,
       allowNull: false
@@ -17,5 +17,5 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   });
-  return WorkingDays;
+  return workingDays;
 };
