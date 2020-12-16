@@ -14,7 +14,6 @@ $(document).ready(() => {
 
   // const temperment = $("#temperment").val();
   let temperments = [];
-  getTemperment();
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", event => {
@@ -70,6 +69,7 @@ $(document).ready(() => {
       //populate the returned temperments to the dropdown
     );
   };
+  getTemperment();
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
