@@ -96,6 +96,7 @@ module.exports = function(app) {
       userId,
       stylistId,
       appointmentDate,
+      appointmentTime,
       serviceId,
       complete
     } = req.body;
@@ -105,6 +106,7 @@ module.exports = function(app) {
         userId,
         stylistId,
         appointmentDate,
+        appointmentTime,
         serviceId,
         complete
       });
