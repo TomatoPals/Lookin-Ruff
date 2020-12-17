@@ -43,9 +43,9 @@ $(document).ready(() => {
   });
 });
 
-function filterFunction() {
-  const input
-  const filter
+filterFunction => {
+  const input;
+  const filter;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   div = document.getElementById("myDropdown");
