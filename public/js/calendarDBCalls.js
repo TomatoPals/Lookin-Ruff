@@ -78,10 +78,10 @@ const bookAppointment = (
     serviceId: serviceId,
     complete: false
   })
-  .then(() => {
-    window.location.replace("/members");
+    .then(() => {
+      window.location.replace("/members");
     })
-    
+
     .catch(handleBookingErr);
   console.log("Error:", data);
 };
@@ -89,4 +89,4 @@ const bookAppointment = (
 function handleBookingErr(err) {
   $("#alert .msg").text(err.responseJSON);
   $("#alert").fadeIn(500);
-};
+}
