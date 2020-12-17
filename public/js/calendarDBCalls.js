@@ -1,7 +1,6 @@
 $(document).ready(() => {
   // declares appointment as global variable
   window.appointment = {};
-  
   const serviceView = $("#appointmentfor");
   const stylistView = $("#stylist");
   // display stylists in dropdown
@@ -42,7 +41,7 @@ $(document).ready(() => {
 });
 // get dataTime and dataDate info
 $(function() {
-  $(".myc-day-time-container .myc-available-time").click(function() {
+  $(".myc-day-time-container .myc-available-time").click(() => {
     const appointmentTime = $(this).attr("data-time");
     console.log("appointmentTime:", appointmentTime);
     const appointmentDate = $(this).attr("data-date");
@@ -54,7 +53,7 @@ $(function() {
 
 // get stylistId and serviceId
 $(function() {
-  $("#bookAppointmentBtn").click(function() {
+  $("#bookAppointmentBtn").click(() => {
     const serviceId = $("#appointmentfor option:selected").attr("id");
     const stylistId = $("#stylist option:selected").attr("id");
     appointment.serviceId = serviceId;
@@ -81,13 +80,13 @@ const bookAppointment = (
   })
   .then(() => {
     window.location.replace("/members");
-  })
-  .catch(handleBookingErr);
-  console.log("Error:", data);
+    })
+    
+    .catch(handleBookingErr);
+    console.log("Error:", data);
 };
 
 function handleBookingErr(err) {
   $("#alert .msg").text(err.responseJSON);
   $("#alert").fadeIn(500);
 }
-
