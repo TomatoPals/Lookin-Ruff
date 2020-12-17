@@ -4,17 +4,17 @@ $(document).ready(() => {
   $.get("/api/user_data").then(data => {
     $("#welcome").text(data.firstName + " " + data.lastName);
     // customer info
-    $("#firstName").val(data.firstName);
-    $("#lastName").val(data.lastName);
-    $("#email").val(data.email);
-    $("#phone").val(data.phone);
-    $("#address").val(data.address);
-    $("#address2").val(data.address2);
-    $("#city").val(data.city);
-    $("#state").val(data.state);
-    $("#zipCode").val(data.zipCode);
+    $("input#firstName-input").val(data.firstName);
+    $("input#lastName-input").val(data.lastName);
+    $("input#email-input").val(data.email);
+    $("input#phone-input").val(data.phone);
+    $("input#address-input").val(data.address);
+    $("input#address2-input").val(data.address2);
+    $("input#city-input").val(data.city);
+    $("input#state-input").val(data.state);
+    $("input#zipCode-input").val(data.zipCode);
     // dog info
-    $("#dogName").val(data.dogName);
+    $("input#dogName-input").val(data.dogName);
     $("#dogNote").val(data.dogNote);
   });
 });
