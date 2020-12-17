@@ -118,7 +118,7 @@ module.exports = function(app) {
 
   //route for
 
-  //route for getting user appointment info
+  // route for getting user appointment info
   app.get("/api/appointments", (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
@@ -130,6 +130,16 @@ module.exports = function(app) {
           res.json(dbget);
         });
     }
+  });
+
+  app.get("/api/appointments/:date", async (req, res) => {
+    const dbStylist = await db.appointments.findAll({
+      where: {
+        appointmentDate: req.params.date
+      },
+      include: db.User
+    });
+    res.json(dbStylist);
   });
 
   //route for updating appointment info
