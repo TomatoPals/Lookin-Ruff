@@ -12,9 +12,6 @@ $(document).ready(() => {
   const stateInput = $("input#state-input");
   const zipInput = $("input#zipCode-input");
 
-  // const temperment = $("#temperment").val();
-  let temperments = [];
-
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", event => {
     event.preventDefault();

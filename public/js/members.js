@@ -17,8 +17,10 @@ $(document).ready(() => {
     $("#dogName").val(data.dogName);
     $("#dogNote").val(data.dogNote);
   });
+  
+  let temperaments = [];
 
-  $("#temperamentBtn").click(function tempermentMenu() {
+  $("#temperamentBtn").on("click", temperamentMenu => {
     $.get("/api/temperament", data => {
       temperaments = data;
       console.log(temperaments);
@@ -42,7 +44,7 @@ $(document).ready(() => {
 });
 
 function filterFunction() {
-  var input, filter, ul, li, a, i;
+  let input, filter, a, i;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   div = document.getElementById("myDropdown");
