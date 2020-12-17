@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
+  <title>LookinRuff Member Page</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -11,96 +11,131 @@
 </head>
 
 <body>
+  <!-- navbar start -->
   <div class="container">
     <nav class="navbar navbar-expand-lg">
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="/index.html">
-                <img src="assets/lookinRuff_S.svg" width="100%" alt="">
-            </a>
-        </div>
-        <div class="mr-5">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="/index.html">
+          <img src="assets/lookinRuff_S.svg" width="100%" alt="">
+        </a>
+      </div>
+      <div class="mr-5">
         <a class="btn btn-primary button button1" style="width: 100px" href="/logout" button">Logout</a>
-        </div>
+      </div>
     </nav>
   </div>
+  <!-- navbar end -->
+
+  <!-- member container start -->
   <div class="container">
-    <h2 style="padding: 10px 0 30px 0;">Welcome <span id="welcome"></span></h2>
+    <h2 style="padding: 20px 0 0 10px;">Welcome <span id="welcome"></span></h2>
+    <!-- form start -->
+    <form class="update">
+      <div class="row col-12">
+        <!-- member info start -->
+        <div class="col-sm-6 col-md-5 col-lg-6 mt-5">
+          <h4 style="padding: 0 0 10px 0;">Member Info</h4>
+          <div class="row">
+            <div class="form-group col-lg-6">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName-input" placeholder="First name">
+            </div>
+            <div class="form-group col-lg-6">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName-input" placeholder="Last name">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-lg-12">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password-input" placeholder="Password">
+            </div>
+            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Error:</span> <span class="msg"></span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-lg-8">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email-input" placeholder="Email">
+            </div>
+            <div class="form-group col-lg-4">
+              <label for="phone">Phone</label>
+              <input type="text" class="form-control" id="phone-input" placeholder="Phone">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-lg-6">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" id="address-input" placeholder="Address">
+            </div>
+            <div class="form-group col-lg-6">
+              <label for="address2">Address 2</label>
+              <input type="text" class="form-control" id="address2-input" placeholder="Address 2">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-lg-6">
+              <label for="city">City</label>
+              <input type="text" class="form-control" id="city-input" placeholder="City">
+            </div>
+            <div class="form-group col-lg-3">
+              <label for="state">State</label>
+              <input type="text" class="form-control" id="state-input" placeholder="State">
+            </div>
+            <div class="form-group col-lg-3">
+              <label for="zipCode">Zip</label>
+              <input type="text" class="form-control" id="zipCode-input" placeholder="Zip">
+            </div>
+          </div>
+        </div>
+        <!-- member info end -->
+        <!-- dog info start -->
+        <div class="col-sm-6 col-md-5 col-lg-6 mt-5">
+          <div>
+            <h4 style="padding: 0 0 10px 0;">Dog Info</h4>
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <label for="dogName">Dog Name</label>
+                <input type="text" class="form-control" id="dogName-input" placeholder="Dog Name">
+              </div>
+              <div class="form-group col-lg-6">
+                <label for="breedName">Dog Temperament</label>
+                <input type="text" class="form-control" id="dogTemperment-input" placeholder="Dog Temperament">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <label for="breedName">Breed Name</label>
+                <input type="text" class="form-control" id="breedName-input" placeholder="Breed Name">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <label for="dogNote">Dog Notes</label>
+                <textarea class="form-control" id="dogNote" rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary button button1 float-right mt-1"
+            style="width: 100px">Update</button>
+        </div>
+        <!-- dog info end -->
+      </div>
   </div>
-  <form>
-    <div class="container">
-      <h4 style="padding: 0 0 20px 0;">Customer Info</h4>
-      <!-- customer info line 1 -->
-      <div class="row">
-        <div class="col-sm-3">
-          <label for="firstName">First name</label>
-          <input type="text" id="firstName" class="form-control" placeholder="First name">
-        </div>
-        <div class="col-sm-3">
-          <label for="lastName">Last name</label>
-          <input type="text" id="lastName" class="form-control" placeholder="Last name">
-        </div>
-        <div class="col-sm-3">
-          <label for="email">Email address</label>
-          <input type="text" id="email" class="form-control" placeholder="Last name">
-        </div>
-        <div class="col-sm-3">
-          <label for="phone">Phone</label>
-          <input type="text" id="phone" class="form-control" placeholder="Phone">
-        </div>
-      </div>
-      <br>
-      <!-- customer info line 2 -->
-      <div class="row">
-        <div class="col-sm-3">
-          <label for="address">Address</label>
-          <input type="text" id="address" class="form-control" placeholder="Address">
-        </div>
-        <div class="col-sm-3">
-          <label for="address2">Address 2</label>
-          <input type="text" id="address2" class="form-control" placeholder="Address 2">
-        </div>
-        <div class="col-sm-2">
-          <label for="city">City</label>
-          <input type="text" id="city" class="form-control" placeholder="City">
-        </div>
-        <div class="col-sm-2">
-          <label for="state">State</label>
-          <input type="text" id="state" class="form-control" placeholder="State">
-        </div>
-        <div class="col-sm-2">
-          <label for="zipCode">Zipcode</label>
-          <input type="text" id="zipCode" class="form-control" placeholder="Zip">
-        </div>
-      </div>
-      <!-- dog info line 1 -->
-      <h4 style="padding: 50px 0 20px 0;">Dog Info</h4>
-      <div class="row">
-        <div class="col-sm-3">
-          <label for="dogName">Dog name</label>
-          <input type="text" id="dogName" class="form-control" placeholder="dogName">
-        </div>
-        <div class="col-sm-3">
-          <label for="lastName">Dog Breed</label>
-          <input type="text" id="lastName" class="form-control">
-        </div>
-        <div class="col-sm-3">
-          <label for="email">Dog Temperament</label>
-          <input type="text" id="email" class="form-control">
-        </div>
-      </div>
-      <br>
-      <!-- dog info line 1 -->
-      <div class="row">
-        <div class="col-lg-6">
-          <label for="dogNote">Dog Notes</label>
-          <textarea class="form-control" id="dogNote" rows="4"></textarea>
-        </div>
-      </div>
-    </div>
+  <!-- member container end -->
   </form>
-  <!-- <div>
-      <button id="emailTest">send email</button>
-    </div> -->
+  <!-- form end -->
+
+  <div class="container">
+  <div class="col-sm-12 col-md-5 col-lg-12 mt-5">
+    <h4 style="padding: 0 0 10px 0;">Appointment Info</h4>
+    <hr>
+  
+  </div>
+</div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
   <script type="text/javascript" src="js/email.js"></script>
