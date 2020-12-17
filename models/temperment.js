@@ -13,7 +13,9 @@ module.exports = (sequelize, DataTypes) => {
     temperment: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   });
   return dogTemperments;
 };

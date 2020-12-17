@@ -3,7 +3,9 @@ module.exports = (sequelize, DataTypes) => {
     stylistName: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   });
   return stylists;
 };

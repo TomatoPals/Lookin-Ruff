@@ -71,7 +71,7 @@ $(document).ready(() => {
       );
     });
     stylistDetails.append(
-      "<div class=`col-4`><input type=`text` placeholder=`Enter Name` id='inputName'></div>"
+      "<div class='col-4'><input type='text' placeholder='Enter Name' id='inputName'></div>"
     );
     stylistDetails.append("<div class='col-4>'</div>");
     stylistDetails.append(

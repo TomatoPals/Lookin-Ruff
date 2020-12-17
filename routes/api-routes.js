@@ -93,7 +93,7 @@ module.exports = function(app) {
   //route for creating appointment
   app.post("/api/appointments", async (req, res) => {
     const {
-      userId,
+      UserId,
       stylistId,
       appointmentDate,
       appointmentTime,
@@ -103,7 +103,7 @@ module.exports = function(app) {
 
     try {
       const createAppointment = await db.appointments.create({
-        userId,
+        UserId,
         stylistId,
         appointmentDate,
         appointmentTime,
