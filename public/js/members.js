@@ -17,7 +17,7 @@ $(document).ready(() => {
     $("#dogName").val(data.dogName);
     $("#dogNote").val(data.dogNote);
   });
-  
+
   let temperaments = [];
 
   $("#temperamentBtn").on("click", temperamentMenu => {
@@ -44,12 +44,12 @@ $(document).ready(() => {
 });
 
 function filterFunction() {
-  let input, filter, a, i;
+  const input, filter, a;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   div = document.getElementById("myDropdown");
   a = div.getElementsByTagName("a");
-  for (i = 0; i < a.length; i++) {
+  for (let i = 0; i < a.length; i++) {
     txtValue = a[i].textContent || a[i].innerText;
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
       a[i].style.display = "";
