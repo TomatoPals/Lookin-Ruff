@@ -1,0 +1,192 @@
+#myc-container {
+  width: inherit;
+}
+
+#myc-nav-container {
+  margin-bottom: 15px;
+  width: inherit;
+}
+
+#myc-current-month-year-container {
+  display: inline-block;
+  font-size: 1.5em;
+  font-weight: lighter;
+  text-align: center;
+  text-transform: capitalize;
+  vertical-align: top;
+  width: 68%;
+}
+
+#myc-prev-week-container {
+  display: inline-block;
+  width: 15%;
+}
+
+#myc-next-week-container {
+  display: inline-block;
+  width: 15%;
+}
+
+#myc-prev-week {
+  border: 1px solid #ffffff;
+  border-radius: 80px;
+  color: #ffffff;
+  cursor: pointer;
+  float: left;
+  font-size: 1.6em;
+  font-weight: lighter;
+  height: 40px;
+  text-align: center;
+  width: 40px;
+}
+
+#myc-next-week {
+  border: 1px solid #ffffff;
+  border-radius: 80px;
+  color: #ffffff;
+  cursor: pointer;
+  float: right;
+  font-size: 1.6em;
+  font-weight: lighter;
+  height: 40px;
+  text-align: center;
+  width: 40px;
+}
+
+#myc-prev-week:hover,
+#myc-next-week:hover {
+  border: 1px solid #bdbdbd;
+  color: #bdbdbd;
+}
+
+#myc-week-container {
+  border: 1px solid #e0e0e0;
+}
+
+#myc-dates-container {
+  background-color: #fafafa;
+}
+
+.myc-date-header {
+  border-right: 1px solid #e0e0e0;
+  display: inline-block;
+  min-height: 50px;
+  padding: 15px 0px 15px 15px;
+  vertical-align: top;
+  width: 13.77%;
+}
+
+.myc-date-header:first-of-type {
+  padding-left: 15px;
+}
+
+.myc-date-header:last-of-type {
+  border-right: none;
+  width: 13%;
+}
+
+#myc-available-time-container {
+  border-top: 1px solid #e0e0e0;
+  min-height: 150px;
+}
+
+.myc-day-time-container {
+  /*border-right: 1px solid #e0e0e0;*/
+  display: inline-block;
+  height: 100%;
+  padding: 15px 15px 15px 15px;
+  vertical-align: top;
+  width: 13.77%;
+}
+
+.myc-day-time-container:first-of-type {
+  padding-left: 15px;
+}
+
+.myc-day-time-container:last-of-type {
+  border-right: none;
+  width: 13%;
+}
+
+.myc-date-number {
+  font-size: 1.8em;
+  font-weight: lighter;
+}
+
+.myc-available-time {
+  background-color: #29b6f6;
+  border-radius: 20px;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 15px;
+  padding: 10px 0px 10px 0px;
+  text-align: center;
+}
+
+.myc-available-time.selected,
+.myc-available-time:hover {
+  background-color: #222;
+}
+
+.myc-date-display {
+  font-weight: lighter;
+}
+
+@media only screen and (max-width: 768px) {
+  .myc-date-header,
+  .myc-day-time-container {
+    width: 13.5%;
+  }
+  /*.myc-date-header:last-of-type, .myc-day-time-container:last-of-type {
+        width: 12%;
+    }*/
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.well-block {
+  background-color: #fff;
+  border: 1px solid #e9e6e8;
+  padding: 40px;
+}
+
+.well-title {
+  margin-bottom: 40px;
+}

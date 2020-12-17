@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Services = sequelize.define("Services", {
+  const services = sequelize.define("services", {
     description: {
       type: DataTypes.STRING,
       allowNull: false
@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
     duration: {
       type: DataTypes.STRING,
       defaultValue: null
-    }
+    },
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   });
-  return Services;
+  return services;
 };

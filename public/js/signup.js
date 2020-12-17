@@ -14,7 +14,6 @@ $(document).ready(() => {
 
   // const temperment = $("#temperment").val();
   let temperments = [];
-  getTemperment();
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", event => {

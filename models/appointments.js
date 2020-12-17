@@ -1,14 +1,15 @@
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Appointment = sequelize.define("Appointment", {
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
+  const appointments = sequelize.define("appointments", {
     stylistId: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
     appointmentDate: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    appointmentTime: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -19,7 +20,18 @@ module.exports = (sequelize, DataTypes) => {
     complete: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
-    }
+    },
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   });
-  return Appointment;
+
+  appointments.associate = models => {
+    models.appointments.belongsTo(models.User, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+  return appointments;
 };

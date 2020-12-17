@@ -5,7 +5,7 @@ USE looking_ruff_db;
 
 
 /*stylist table*/
-CREATE TABLE stylist (
+CREATE TABLE stylists (
     id INT NOT NULL AUTO_INCREMENT,
     stylistName VARCHAR(100) NOT NULL,
     createdAt DATETIME DEFAULT NULL,
@@ -14,16 +14,16 @@ CREATE TABLE stylist (
 );
 
 /*roles table*/
-CREATE TABLE roles (
-    id INT NOT NULL AUTO_INCREMENT,
-    roleName VARCHAR(100) NOT NULL,
-    createdAt DATETIME DEFAULT NULL,
-    updatedAt DATETIME DEFAULT NULL,
-    PRIMARY KEY (id)
-);
+-- CREATE TABLE roles (
+--     id INT NOT NULL AUTO_INCREMENT,
+--     roleName VARCHAR(100) NOT NULL,
+--     createdAt DATETIME DEFAULT NULL,
+--     updatedAt DATETIME DEFAULT NULL,
+--     PRIMARY KEY (id)
+-- );
 
 /*dog_breed table*/
-CREATE TABLE dogBreed (
+CREATE TABLE dogBreeds (
     id INT NOT NULL AUTO_INCREMENT,
     breedName VARCHAR(100) NOT NULL,
     breedTypeId INT DEFAULT NULL,
@@ -37,18 +37,18 @@ CREATE TABLE dogBreed (
 
 
 /*dog breed type*/
-CREATE TABLE dogBreedType (
-    id INT NOT NULL AUTO_INCREMENT,
-    breedTypeName VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
-    breedTypeId INT DEFAULT NULL,
-    createdAt DATETIME DEFAULT NULL,
-    updatedAt DATETIME DEFAULT NULL,
-    PRIMARY KEY (id)
-);
+-- CREATE TABLE dogBreedTypes (
+--     id INT NOT NULL AUTO_INCREMENT,
+--     breedTypeName VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
+--     breedTypeId INT DEFAULT NULL,
+--     createdAt DATETIME DEFAULT NULL,
+--     updatedAt DATETIME DEFAULT NULL,
+--     PRIMARY KEY (id)
+-- );
 
 
 /*dog_temperment table*/
-CREATE TABLE dogTemperment (
+CREATE TABLE dogTemperments (
     id INT NOT NULL AUTO_INCREMENT,
     temperment VARCHAR(100) NOT NULL,
     createdAt DATETIME DEFAULT NULL,
@@ -58,24 +58,24 @@ CREATE TABLE dogTemperment (
 
 
 /*dog_notes table */
-CREATE TABLE dogNotes (
-    id INT NOT NULL AUTO_INCREMENT,
-    userId INT(11) DEFAULT NULL,
-    note VARCHAR(350) NOT NULL,
-    createdAt DATETIME NOT NULL,
-    updatedAt DATETIME DEFAULT NULL,
-    PRIMARY KEY (id)
-);
+-- CREATE TABLE dogNotes (
+--     id INT NOT NULL AUTO_INCREMENT,
+--     userId INT(11) DEFAULT NULL,
+--     note VARCHAR(350) NOT NULL,
+--     createdAt DATETIME NOT NULL,
+--     updatedAt DATETIME DEFAULT NULL,
+--     PRIMARY KEY (id)
+-- );
 
 /*customer_images table */
-CREATE TABLE customerImages (
-    id TINYINT NOT NULL AUTO_INCREMENT,
-    userId INT(11) DEFAULT NULL,
-    image VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
-    createdAt DATETIME NOT NULL,
-    updatedAt DATETIME DEFAULT NULL,
-    PRIMARY KEY (id)
-);
+-- CREATE TABLE customerImages (
+--     id TINYINT NOT NULL AUTO_INCREMENT,
+--     userId INT(11) DEFAULT NULL,
+--     image VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
+--     createdAt DATETIME NOT NULL,
+--     updatedAt DATETIME DEFAULT NULL,
+--     PRIMARY KEY (id)
+-- );
 
 /*appointments table */
 CREATE TABLE appointments (
@@ -83,6 +83,7 @@ CREATE TABLE appointments (
     userId INT(11) NOT NULL,
     stylistId INT(11) NOT NULL,
     appointmentDate VARCHAR(50) NOT NULL,
+    appointmentTime VARCHAR(50) NOT NULL,
     serviceId INT(11) DEFAULT NULL,
     createdAt DATETIME NOT NULL,
     complete BOOLEAN DEFAULT NULL,
@@ -104,16 +105,16 @@ CREATE TABLE services (
 
 
 /*services working_days */
-CREATE TABLE workingDays (
-    id INT NOT NULL AUTO_INCREMENT,
-    workday VARCHAR(50) NOT NULL,
-    startTime VARCHAR(50) NOT NULL,
-    endTime VARCHAR(50) NOT NULL,
-    active BOOLEAN NOT NULL,
-    createdAt DATETIME DEFAULT NULL,
-    updatedAt DATETIME DEFAULT NULL,
-    PRIMARY KEY (id)
-);
+-- CREATE TABLE workingDays (
+--     id INT NOT NULL AUTO_INCREMENT,
+--     workday VARCHAR(50) NOT NULL,
+--     startTime VARCHAR(50) NOT NULL,
+--     endTime VARCHAR(50) NOT NULL,
+--     active BOOLEAN NOT NULL,
+--     createdAt DATETIME DEFAULT NULL,
+--     updatedAt DATETIME DEFAULT NULL,
+--     PRIMARY KEY (id)
+-- );
 
 
 CREATE TABLE Users (
@@ -131,7 +132,7 @@ CREATE TABLE Users (
     roleId INT(11) DEFAULT NULL,
     dogName VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
     dogBreedId INT DEFAULT NULL,
-    dogTempramentId VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
+    dogTempermentId VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
     imageId TINYINT(3) DEFAULT '0',
     dogNote TEXT DEFAULT NULL,
     password VARCHAR(255) NOT NULL,

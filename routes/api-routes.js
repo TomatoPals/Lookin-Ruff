@@ -68,11 +68,10 @@ module.exports = function(app) {
   //Route for sending email
   app.post("/api/send", (req, res) => {
     const transporter = nodemailer.createTransport({
-      host: "smtp.ethereal.email",
-      port: 587,
+      service: "gmail",
       auth: {
-        user: "rylee.mueller@ethereal.email",
-        pass: "X5cx2ym18s4NrQZGzE"
+        user: process.env.EMAIL_LOGIN,
+        pass: process.env.EMAIL_PASSWORD
       }
     });
     const mailOptions = {
@@ -94,18 +93,20 @@ module.exports = function(app) {
   //route for creating appointment
   app.post("/api/appointments", async (req, res) => {
     const {
-      userId,
+      UserId,
       stylistId,
       appointmentDate,
+      appointmentTime,
       serviceId,
       complete
     } = req.body;
 
     try {
-      const createAppointment = await db.Appointment.create({
-        userId,
+      const createAppointment = await db.appointments.create({
+        UserId,
         stylistId,
         appointmentDate,
+        appointmentTime,
         serviceId,
         complete
       });
@@ -117,23 +118,33 @@ module.exports = function(app) {
 
   //route for
 
-  //route for getting user appointment info
+  // route for getting user appointment info
   app.get("/api/appointments", (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      db.Appointment.findAll({ where: { id: `${req.user.id}` } }).then(
-        dbget => {
+      db.appointments
+        .findAll({ where: { id: `${req.user.id}` } })
+        .then(dbget => {
           res.json(dbget);
-        }
-      );
+        });
     }
   });
 
-  //route for updateing appointment info
+  app.get("/api/appointments/:date", async (req, res) => {
+    const dbStylist = await db.appointments.findAll({
+      where: {
+        appointmentDate: req.params.date
+      },
+      include: db.User
+    });
+    res.json(dbStylist);
+  });
+
+  //route for updating appointment info
   app.put("/api/appointments", async (req, res) => {
-    const dbAppointment = await db.Appointment.update(req.body, {
+    const dbAppointment = await db.appointments.update(req.body, {
       where: {
         userId: req.body.user_id
       }
@@ -144,7 +155,7 @@ module.exports = function(app) {
   //route for adding a stylist
   app.post("/api/stylist", async (req, res) => {
     try {
-      const createStylist = await db.Stylist.create({
+      const createStylist = await db.stylists.create({
         stylistName: req.body.stylistName
       });
       res.json(createStylist);
@@ -153,11 +164,17 @@ module.exports = function(app) {
     }
   });
 
+  //route for getting stylists
+  app.get("/api/stylist", async (req, res) => {
+    const dbStylist = await db.stylists.findAll({});
+    res.json(dbStylist);
+  });
+
   //route for deleteing a stylist
-  app.delete("/api/stylist/", async (req, res) => {
-    const dbStylist = await db.Stylist.destroy({
+  app.delete("/api/stylist/:id", async (req, res) => {
+    const dbStylist = await db.stylists.destroy({
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     });
     res.json(dbStylist);
@@ -167,7 +184,7 @@ module.exports = function(app) {
   app.post("/api/services", async (req, res) => {
     const { description, price, duration } = req.body;
     try {
-      const createService = await db.Services.create({
+      const createService = await db.services.create({
         description,
         price,
         duration
@@ -178,11 +195,17 @@ module.exports = function(app) {
     }
   });
 
+  //route for getting services
+  app.get("/api/services", async (req, res) => {
+    const dbServices = await db.services.findAll({});
+    res.json(dbServices);
+  });
+
   //route for deleting a service
-  app.delete("/api/services/", async (req, res) => {
-    const dbService = await db.Services.destroy({
+  app.delete("/api/services/:id", async (req, res) => {
+    const dbService = await db.services.destroy({
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     });
     res.json(dbService);
@@ -190,7 +213,7 @@ module.exports = function(app) {
 
   //route for updating a service
   app.put("/api/services", async (req, res) => {
-    const dbService = await db.Appointment.Services(req.body, {
+    const dbService = await db.services.update(req.body, {
       where: {
         id: req.body.id
       }
@@ -202,7 +225,7 @@ module.exports = function(app) {
   app.post("/api/workday", async (req, res) => {
     const { workday, startTime, endTime, active } = req.body;
     try {
-      const createWorkday = await db.WorkDay.create({
+      const createWorkday = await db.workingDays.create({
         workday,
         startTime,
         endTime,
@@ -224,7 +247,7 @@ module.exports = function(app) {
 
   //route for deleting a workday
   app.delete("/api/workday/", async (req, res) => {
-    const dbWorkday = await db.Workday.destroy({
+    const dbWorkday = await db.workingDays.destroy({
       where: {
         id: req.body.id
       }
@@ -234,7 +257,7 @@ module.exports = function(app) {
 
   //route for updating a workday
   app.put("/api/workday", async (req, res) => {
-    const dbWorkday = await db.Workday.Services(req.body, {
+    const dbWorkday = await db.workingDays.update(req.body, {
       where: {
         id: req.body.id
       }
@@ -246,7 +269,7 @@ module.exports = function(app) {
   app.post("/api/dognotes", async (req, res) => {
     const { userId, note } = req.body;
     try {
-      const createDogNote = await db.DogNotes.create({
+      const createDogNote = await db.dogNotes.create({
         userId,
         note
       });
@@ -258,7 +281,7 @@ module.exports = function(app) {
 
   //route for deleting a dog note
   app.delete("/api/dognotes/", async (req, res) => {
-    const dbDogNotes = await db.DogNotes.destroy({
+    const dbDogNotes = await db.dogNotes.destroy({
       where: {
         id: req.body.id
       }
@@ -268,7 +291,7 @@ module.exports = function(app) {
 
   //route for updating a dog note
   app.put("/api/dognotes", async (req, res) => {
-    const dbDogNotes = await db.DogNotes.Services(req.body, {
+    const dbDogNotes = await db.dogNotes.update(req.body, {
       where: {
         id: req.body.id
       }
@@ -278,7 +301,7 @@ module.exports = function(app) {
 
   //route for getting a dog note
   app.get("/api/dognotes/:id", async (req, res) => {
-    const dbDogNotes = await db.DogNotes.findOne({
+    const dbDogNotes = await db.dogNotes.findOne({
       where: {
         id: req.params.id
       }
