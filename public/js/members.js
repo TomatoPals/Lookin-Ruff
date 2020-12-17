@@ -44,11 +44,11 @@ $(document).ready(() => {
 });
 
 function filterFunction() {
-  const input, filter, a;
+  const input, filter;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   div = document.getElementById("myDropdown");
-  a = div.getElementsByTagName("a");
+  const a = div.getElementsByTagName("a");
   for (let i = 0; i < a.length; i++) {
     txtValue = a[i].textContent || a[i].innerText;
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
