@@ -42,7 +42,7 @@ $(document).ready(() => {
   displayUser(getUser());
 });
 // get dataTime and dataDate info
-$(function() {
+$(() => {
   $(".myc-day-time-container .myc-available-time").click(function() {
     const appointmentTime = $(this).attr("data-time");
     console.log("appointmentTime:", appointmentTime);
