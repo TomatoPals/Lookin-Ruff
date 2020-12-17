@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
     duration: {
       type: DataTypes.STRING,
       defaultValue: null
-    }
+    },
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   });
   return services;
 };
