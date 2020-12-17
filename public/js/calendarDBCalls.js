@@ -1,24 +1,21 @@
 $(document).ready(() => {
-  $("#appointmentfor").on("click", event => {
-    event.preventDefault();
-    console.log(`${event.target.id}`);
-  });
+  // declares appointment as global variable
+  window.appointment = {};
   const serviceView = $("#appointmentfor");
   const stylistView = $("#stylist");
-
+  // display stylists in dropdown
   const getStylist = async () => await $.get("/api/stylist");
   const displayStylists = async response => {
     const stylistPromise = Promise.resolve(response);
     const stylistJSON = await stylistPromise;
     stylistJSON.forEach(stylist => {
       stylistView.append(
-        `<option value="${stylist.stylistName}">${stylist.stylistName}</option>`
+        `<option id ="${stylist.id}" value="${stylist.stylistName}">${stylist.stylistName}</option>`
       );
     });
-    console.log(stylistJSON);
   };
   displayStylists(getStylist());
-
+  // display services in dropdown
   const getService = async () => await $.get("/api/services");
   const displayServices = async response => {
     const servicePromise = Promise.resolve(response);
@@ -31,22 +28,65 @@ $(document).ready(() => {
   };
   displayServices(getService());
 
-  // testing
-  //   $("#bookAppointmentBtn").on("click", event => {
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  //     const appointmentfor = $("#appointmentfor");
-  //     console.log("appointmentfor:", appointmentfor);
-  //     const stylist = $("#stylist");
-  //     console.log("stylist:", stylist);
-  //     const bookAppointment = async function() {
-  //       await $.post("/api/appointment", {
-  //         // userId: `${}`,
-  //         stylistId: `${stylistID.val()}`,
-  //         appointmentfor: `${appointmentfor.val()}`,
-  //         // appointmentDate: `${}`,
-  //         appointmentTime: `${}`
-  //       });
-  //     };
-  //   });
+  // get userId
+  const getUser = async () => await $.get("/api/user_data");
+  const displayUser = async response => {
+    const userPromise = Promise.resolve(response);
+    const userJSON = await userPromise;
+    const userId = userJSON.id;
+    console.log("UserId :", userId);
+    appointment.userId = userId;
+  };
+  displayUser(getUser());
 });
+// get dataTime and dataDate info
+$(function() {
+  $(".myc-day-time-container .myc-available-time").click(() => {
+    const appointmentTime = $(this).attr("data-time");
+    console.log("appointmentTime:", appointmentTime);
+    const appointmentDate = $(this).attr("data-date");
+    console.log("appointmentDate:", appointmentDate);
+    appointment.appointmentDate = appointmentDate;
+    appointment.appointmentTime = appointmentTime;
+  });
+});
+
+// get stylistId and serviceId
+$(() => {
+  $("#bookAppointmentBtn").click(() => {
+    const serviceId = $("#appointmentfor option:selected").attr("id");
+    const stylistId = $("#stylist option:selected").attr("id");
+    appointment.serviceId = serviceId;
+    appointment.stylistId = stylistId;
+    console.log("appointment:", appointment);
+    bookAppointment();
+  });
+});
+
+const bookAppointment = (
+  userId = appointment.userId,
+  stylistId = appointment.stylistId,
+  appointmentDate = appointment.appointmentDate,
+  appointmentTime = appointment.appointmentTime,
+  serviceId = appointment.serviceId
+) => {
+  $.post("/api/appointments", {
+    userId: userId,
+    stylistId: stylistId,
+    appointmentDate: appointmentDate,
+    appointmentTime: appointmentTime,
+    serviceId: serviceId,
+    complete: false
+  })
+    .then(() => {
+      window.location.replace("/members");
+    })
+
+    .catch(handleBookingErr);
+  console.log("Error:", data);
+};
+
+function handleBookingErr(err) {
+  $("#alert .msg").text(err.responseJSON);
+  $("#alert").fadeIn(500);
+}
