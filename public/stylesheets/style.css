@@ -12,7 +12,7 @@ form.index{
   border-radius: 10px;
   padding: 10px;
   text-decoration: none;
-  display: block;
+  /* display: block; */
   margin: auto;
   transition-duration: 0.4s;
   cursor: pointer;
@@ -192,7 +192,4 @@ body {
   background: #2eabe5;
   z-index: -1;
   border-radius: 10px;
-}
-.container {
-
 }
