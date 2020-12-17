@@ -41,7 +41,7 @@ $(document).ready(() => {
 });
 // get dataTime and dataDate info
 $(function() {
-  $(".myc-day-time-container .myc-available-time").click(() => {
+  $(".myc-day-time-container .myc-available-time").click(function()  {
     const appointmentTime = $(this).attr("data-time");
     console.log("appointmentTime:", appointmentTime);
     const appointmentDate = $(this).attr("data-date");
@@ -52,7 +52,7 @@ $(function() {
 });
 
 // get stylistId and serviceId
-$(() => {
+$(function() {
   $("#bookAppointmentBtn").click(() => {
     const serviceId = $("#appointmentfor option:selected").attr("id");
     const stylistId = $("#stylist option:selected").attr("id");
@@ -71,14 +71,14 @@ const bookAppointment = (
   serviceId = appointment.serviceId
 ) => {
   $.post("/api/appointments", {
-    userId: userId,
+    UserId: userId,
     stylistId: stylistId,
     appointmentDate: appointmentDate,
     appointmentTime: appointmentTime,
     serviceId: serviceId,
     complete: false
   })
-    .then(() => {
+  .then(() => {
       window.location.replace("/members");
     })
 
