@@ -44,10 +44,8 @@ $(document).ready(() => {
 });
 
 filterFunction => {
-  const input;
-  const filter;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
+  const input = document.getElementById("myInput");
+  const filter = input.value.toUpperCase();
   div = document.getElementById("myDropdown");
   const a = div.getElementsByTagName("a");
   for (let i = 0; i < a.length; i++) {
