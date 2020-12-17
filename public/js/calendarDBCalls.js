@@ -1,10 +1,9 @@
 $(document).ready(() => {
-  // const appointmentFor = $("#appointmentfor").on("click", event => {
-  //   event.preventDefault();
-  // });
+  // declares appointment as global variable
+  window.appointment = {};
+  
   const serviceView = $("#appointmentfor");
   const stylistView = $("#stylist");
-
   // display stylists in dropdown
   const getStylist = async () => await $.get("/api/stylist");
   const displayStylists = async response => {
@@ -37,7 +36,7 @@ $(document).ready(() => {
     const userJSON = await userPromise;
     const userId = userJSON.id;
     console.log("UserId :", userId);
-    return userId;
+    appointment.userId = userId;
   };
   displayUser(getUser());
 });
@@ -48,6 +47,8 @@ $(function() {
     console.log("appointmentTime:", appointmentTime);
     const appointmentDate = $(this).attr("data-date");
     console.log("appointmentDate:", appointmentDate);
+    appointment.appointmentDate = appointmentDate;
+    appointment.appointmentTime = appointmentTime;
   });
 });
 
@@ -55,19 +56,38 @@ $(function() {
 $(function() {
   $("#bookAppointmentBtn").click(function() {
     const serviceId = $("#appointmentfor option:selected").attr("id");
-    console.log("serviceId:", serviceId);
-    const stylistid = $("#stylist option:selected").attr("id");
-    console.log("stylistId:", stylistid);
+    const stylistId = $("#stylist option:selected").attr("id");
+    appointment.serviceId = serviceId;
+    appointment.stylistId = stylistId;
+    console.log("appointment:", appointment);
+    bookAppointment();
   });
 });
 
-/*   route for creating appointment
-  app.post("/api/appointments", async (req, res) => {
-    const {
-      userId,
-      stylistId,
-      appointmentDate,
-      appointmentTime,
-      serviceId,
-      complete
-    } = req.body; */
+const bookAppointment = (
+  userId = appointment.userId,
+  stylistId = appointment.stylistId,
+  appointmentDate = appointment.appointmentDate,
+  appointmentTime = appointment.appointmentTime,
+  serviceId = appointment.serviceId
+) => {
+  $.post("/api/appointments", {
+    userId: userId,
+    stylistId: stylistId,
+    appointmentDate: appointmentDate,
+    appointmentTime: appointmentTime,
+    serviceId: serviceId,
+    complete: false
+  })
+  .then(() => {
+    window.location.replace("/members");
+  })
+  .catch(handleBookingErr);
+  console.log("Error:", data);
+};
+
+function handleBookingErr(err) {
+  $("#alert .msg").text(err.responseJSON);
+  $("#alert").fadeIn(500);
+}
+
