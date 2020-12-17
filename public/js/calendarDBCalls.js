@@ -34,14 +34,16 @@ $(document).ready(() => {
     const userPromise = Promise.resolve(response);
     const userJSON = await userPromise;
     const userId = userJSON.id;
+    const email = userJSON.email;
     console.log("UserId :", userId);
     appointment.userId = userId;
+    appointment.email = email;
   };
   displayUser(getUser());
 });
 // get dataTime and dataDate info
-$(function() {
-  $(".myc-day-time-container .myc-available-time").click(() => {
+$(() => {
+  $(".myc-day-time-container .myc-available-time").click(function() {
     const appointmentTime = $(this).attr("data-time");
     console.log("appointmentTime:", appointmentTime);
     const appointmentDate = $(this).attr("data-date");
@@ -59,19 +61,27 @@ $(() => {
     appointment.serviceId = serviceId;
     appointment.stylistId = stylistId;
     console.log("appointment:", appointment);
-    bookAppointment();
+    bookAppointment(
+      appointment.userId,
+      appointment.stylistId,
+      appointment.appointmentDate,
+      appointment.appointmentTime,
+      appointment.serviceId,
+      appointment.email
+    );
   });
 });
 
 const bookAppointment = (
-  userId = appointment.userId,
-  stylistId = appointment.stylistId,
-  appointmentDate = appointment.appointmentDate,
-  appointmentTime = appointment.appointmentTime,
-  serviceId = appointment.serviceId
+  userId,
+  stylistId,
+  appointmentDate,
+  appointmentTime,
+  serviceId,
+  email
 ) => {
   $.post("/api/appointments", {
-    userId: userId,
+    UserId: userId,
     stylistId: stylistId,
     appointmentDate: appointmentDate,
     appointmentTime: appointmentTime,
@@ -79,6 +89,10 @@ const bookAppointment = (
     complete: false
   })
     .then(() => {
+      $.post("/api/send", {
+        email: email,
+        appointmentDate: appointmentDate
+      });
       window.location.replace("/members");
     })
 
