@@ -34,7 +34,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     address2: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true,
+      defaultValue: ""
     },
     city: {
       type: DataTypes.STRING,
@@ -51,11 +52,6 @@ module.exports = function(sequelize, DataTypes) {
     phone: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    roleId: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: 1
     },
     dogName: {
       type: DataTypes.STRING,

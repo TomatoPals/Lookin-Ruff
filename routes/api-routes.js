@@ -23,7 +23,10 @@ module.exports = function(app) {
       address2: req.body.address2,
       city: req.body.city,
       state: req.body.state,
-      zipCode: req.body.zipCode
+      zipCode: req.body.zipCode,
+      dogName: req.body.dogName,
+      dogBreedId: req.body.dogBreedId,
+      dogNote: req.body.dogNote
     })
       .then(() => {
         res.redirect(307, "/api/login");
