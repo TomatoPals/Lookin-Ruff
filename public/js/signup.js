@@ -11,6 +11,8 @@ $(document).ready(() => {
   const cityInput = $("input#city-input");
   const stateInput = $("input#state-input");
   const zipInput = $("input#zipCode-input");
+  const dogName = $("input#dogName-input");
+  const dogNote = $("#dogNote");
 
   // const temperment = $("#temperment").val();
   let temperments = [];
@@ -28,7 +30,9 @@ $(document).ready(() => {
       address2: address2Input.val().trim(),
       city: cityInput.val().trim(),
       state: stateInput.val().trim(),
-      zipCode: zipInput.val().trim()
+      zipCode: zipInput.val().trim(),
+      dogName: dogName.val().trim(),
+      dogNote: dogNote.val().trim()
     };
 
     if (!userData.email || !userData.password) {
@@ -45,7 +49,9 @@ $(document).ready(() => {
       userData.address2,
       userData.city,
       userData.state,
-      userData.zipCode
+      userData.zipCode,
+      userData.dogName,
+      userData.dogNote
     );
     emailInput.val("");
     passwordInput.val("");
@@ -57,6 +63,8 @@ $(document).ready(() => {
     cityInput.val("");
     stateInput.val("");
     zipInput.val("");
+    dogName.val("");
+    dogNote.val("");
   });
 
   //have .get that will get data from the db, then .then to  populate dropdowns on this page when it opens
@@ -85,11 +93,7 @@ $(document).ready(() => {
     city,
     state,
     zipCode,
-    roleId,
     dogName,
-    dogBreedId,
-    dogTempramentId,
-    imageId,
     dogNote
   ) {
     $.post("/api/signup", {
@@ -103,11 +107,7 @@ $(document).ready(() => {
       city: city,
       state: state,
       zipCode: zipCode,
-      roleId: roleId,
       dogName: dogName,
-      dogBreedId: dogBreedId,
-      dogTempramentId: dogTempramentId,
-      imageId: imageId,
       dogNote: dogNote
     })
       .then(() => {
