@@ -52,7 +52,7 @@ $(function() {
 });
 
 // get stylistId and serviceId
-$(function() {
+$(() => {
   $("#bookAppointmentBtn").click(() => {
     const serviceId = $("#appointmentfor option:selected").attr("id");
     const stylistId = $("#stylist option:selected").attr("id");
@@ -83,10 +83,10 @@ const bookAppointment = (
     })
     
     .catch(handleBookingErr);
-    console.log("Error:", data);
+  console.log("Error:", data);
 };
 
 function handleBookingErr(err) {
   $("#alert .msg").text(err.responseJSON);
   $("#alert").fadeIn(500);
-}
+};
