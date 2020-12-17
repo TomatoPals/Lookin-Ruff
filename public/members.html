@@ -5,27 +5,30 @@
   <title>Passport Authentication</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="stylesheets/style.css" rel="stylesheet" />
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header pull-right">
-        <a class="navbar-brand" href="/logout">
-          Logout
-        </a>
-      </div>
-    </div>
-  </nav>
-
   <div class="container">
-    <h2 style="padding: 0 0 30px 0;">Welcome <span id="welcome"></span></h2>
+    <nav class="navbar navbar-expand-lg">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="/index.html">
+                <img src="assets/lookinRuff_S.svg" width="100%" alt="">
+            </a>
+        </div>
+        <div class="mr-5">
+        <a class="btn btn-primary button button1" style="width: 100px" href="/logout" button">Logout</a>
+        </div>
+    </nav>
+  </div>
+  <div class="container">
+    <h2 style="padding: 10px 0 30px 0;">Welcome <span id="welcome"></span></h2>
   </div>
   <form>
     <div class="container">
-      <h3 style="padding: 0 0 20px 0;">Customer Info</h3>
+      <h4 style="padding: 0 0 20px 0;">Customer Info</h4>
       <!-- customer info line 1 -->
       <div class="row">
         <div class="col-sm-3">
@@ -70,7 +73,7 @@
         </div>
       </div>
       <!-- dog info line 1 -->
-      <h3 style="padding: 50px 0 20px 0;">Dog Info</h3>
+      <h4 style="padding: 50px 0 20px 0;">Dog Info</h4>
       <div class="row">
         <div class="col-sm-3">
           <label for="dogName">Dog name</label>
