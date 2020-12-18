@@ -115,6 +115,24 @@ body {
   width: 100%;
   padding: 10px;
 }
+.centerText1 {
+  font-family: 'Ubuntu', sans-serif;
+  color: #151f44;
+  font-size: 24px;
+}
+.centerText2 {
+  font-family: 'Ubuntu', sans-serif;
+  color: #151f44;
+  font-size: 18px;
+}
+.centerText2 {
+  font-family: 'Ubuntu', sans-serif;
+  color: #151f44;
+  font-size: 28px;
+}
+.round {
+  border-radius: 20px;
+}
 .container1 {
   width: 150px;
   height: 150px;
