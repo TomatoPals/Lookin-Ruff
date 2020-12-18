@@ -307,3 +307,9 @@ hr {
 .table {
   border: 1px solid black;
 }
+.right {
+  position: absolute;
+  right: 0px;
+  /* width: 120px;
+  padding: 10px; */
+}
