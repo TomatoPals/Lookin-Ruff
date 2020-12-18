@@ -1,46 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-      crossorigin="anonymous"
-    />
-    <link href="stylesheets/admin-dashboard.css" rel="stylesheet" />
-    <title>Admin Dashboard</title>
-  </head>
-  <body>
-    <main>
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
-      <h1>
-        Services
-      </h1>
-      <div class="container-fluid" id="servicesView">
-        <div class="row" id="serviceDetails">
-          <div class="col-6" id="serviceDescription"><h2>Description</h2></div>
-          <div class="col-2" id="servicePrice"><h2>Price</h2></div>
-          <div class="col-2" id="serviceDuration"><h2>Duration</h2></div>
-          <div class="col-2" id="serviceDelete"><h2></h2></div>
-        </div>
-      </div>
-      <h1>
-        Stylists
-      </h1>
-      <div class="container-fluid" id="stylistView">
-        <div class="row" id="stylistDetails">
-          <div class="col-4" id="stylistName"><h2>Name</h2></div>
-          <div class="col-4" id="stylistCreation"><h2>Created</h2></div>
-          <div class="col-4" id="stylistDelete"><h2></h2></div>
-        </div>
-      </div>
-    </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/adminDashboard.js"></script>
-  </body>
+<head>
+  <title>Admin Dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="stylesheets/style.css" rel="stylesheet" />
+</head>
+
+
+<!-- navbar start -->
+<div class="container">
+  <nav class="navbar navbar-expand-lg">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="/index.html">
+        <img src="assets/lookinRuff_S.svg" width="100%" alt="">
+      </a>
+    </div>
+    <div class="mr-5">
+      <a class="btn btn-primary button button1" style="width: 100px" href="/logout" button">Logout</a>
+    </div>
+  </nav>
+</div>
+<!-- navbar end -->
+
+<body>
+  <div class="container">
+    <h4 class="mb-4 mt-3">Services</h4>
+    <div id="servicesView">
+      <div class="row" id="serviceDetails">
+        <div class="col-6" id="serviceDescription">
+          <h5>Description</h5>
+        </div>
+        <div class="col-2" id="servicePrice">
+          <h5>Price</h5>
+        </div>
+        <div class="col-2 text-center" id="serviceDuration">
+          <h5>Duration</h5>
+        </div>
+        <div id="serviceDelete">
+          <h5></h5>
+        </div>
+      </div>
+    </div>
+    <h4 class="mb-4 mt-5">Stylist</h4>
+    <div id="stylistView">
+      <div class="row" id="stylistDetails">
+        <div class="col-4" id="stylistName">
+          <h5>Name</h5>
+        </div>
+        <div class="col-4" id="stylistCreation">
+          <h5>Created</h5>
+        </div>
+        <div class="col-4" id="stylistDelete">
+          <h5></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/adminDashboard.js"></script>
+
+</body>
+
 </html>
