@@ -160,6 +160,23 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
   <script type="text/javascript" src="js/email.js"></script>
+  <script type= "text/javascript">
+    function filterFunction () {
+  const input = document.getElementById("myInput");
+  const filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  const a = div.getElementsByTagName("option");
+  for (let i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+};
+
+  </script>
 </body>
 
 </html>
