@@ -14,9 +14,6 @@ $(document).ready(() => {
   const dogName = $("input#dogName-input");
   const dogNote = $("#dogNote");
 
-  // const temperment = $("#temperment").val();
-  let temperments = [];
-
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", event => {
     event.preventDefault();
@@ -66,18 +63,6 @@ $(document).ready(() => {
     dogName.val("");
     dogNote.val("");
   });
-
-  //have .get that will get data from the db, then .then to  populate dropdowns on this page when it opens
-  //move to the appropriate file when its created
-  const getTemperment = () => {
-    $.get("/api/temperment", data => {
-      temperments = data;
-    }).then(
-      console.log("Temperments: ", temperments)
-      //populate the returned temperments to the dropdown
-    );
-  };
-  getTemperment();
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
