@@ -42,7 +42,7 @@ $(document).ready(() => {
   displayUser(getUser());
 });
 // get dataTime and dataDate info
-(() => {
+$(() => {
   $(".myc-day-time-container .myc-available-time").click(function() {
     const appointmentTime = $(this).attr("data-time");
     console.log("appointmentTime:", appointmentTime);
@@ -54,7 +54,7 @@ $(document).ready(() => {
 });
 
 // get stylistId and serviceId
-(() => {
+$(() => {
   $("#bookAppointmentBtn").click(() => {
     const serviceId = $("#appointmentfor option:selected").attr("id");
     const stylistId = $("#stylist option:selected").attr("id");
