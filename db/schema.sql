@@ -47,10 +47,10 @@ CREATE TABLE dogBreeds (
 -- );
 
 
-/*dog_temperment table*/
-CREATE TABLE dogTemperments (
+/*dog_temperament table*/
+CREATE TABLE dogTemperaments (
     id INT NOT NULL AUTO_INCREMENT,
-    temperment VARCHAR(100) NOT NULL,
+    temperament VARCHAR(100) NOT NULL,
     createdAt DATETIME DEFAULT NULL,
     updatedAt DATETIME DEFAULT NULL,
     PRIMARY KEY (id)
@@ -132,7 +132,7 @@ CREATE TABLE Users (
     roleId INT(11) DEFAULT NULL,
     dogName VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
     dogBreedId INT DEFAULT NULL,
-    dogTempermentId VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
+    dogTemperamentId VARCHAR(255) COLLATE UTF8_UNICODE_CI DEFAULT NULL,
     imageId TINYINT(3) DEFAULT '0',
     dogNote TEXT DEFAULT NULL,
     password VARCHAR(255) NOT NULL,

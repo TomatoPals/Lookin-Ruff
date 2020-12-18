@@ -16,9 +16,9 @@ INSERT INTO services (description, price, duration, createdAt) VALUES ('Bandana 
 
 
 /*insert dog temperment*/
-INSERT INTO dogTemperments (temperment, createdAt) VALUES ('Confident, friendly, non-aggressive', '2020-12-11 09:36:27');
-INSERT INTO dogTemperments (temperment, createdAt) VALUES ('Semi-confident, shy, non-aggressive', '2020-12-11 09:36:27');
-INSERT INTO dogTemperments (temperment, createdAt) VALUES ('Hates everything and everyone, aggressive', '2020-12-11 09:36:27');
+INSERT INTO dogTemperaments (temperament, createdAt) VALUES ('Confident, friendly, non-aggressive', '2020-12-11 09:36:27');
+INSERT INTO dogTemperaments (temperament, createdAt) VALUES ('Semi-confident, shy, non-aggressive', '2020-12-11 09:36:27');
+INSERT INTO dogTemperaments (temperament, createdAt) VALUES ('Hates everything and everyone, aggressive', '2020-12-11 09:36:27');
 
 /*insert breeds*/
 INSERT INTO dogBreeds(breedName,breedTypeId,breedOrigin,breedImage,breedPdf,createdAt) VALUES ('CHOW CHOW',1,'CHINA','http://www.fci.be/Nomenclature/Illustrations/205g05.jpg','http://www.fci.be/Nomenclature/Standards/205g05-en.pdf','2020-12-11 09:36:27');
