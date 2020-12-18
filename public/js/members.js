@@ -28,12 +28,12 @@ $(document).ready(() => {
     }).then(() => {
       console.log("Temperaments: ", temperaments);
       //populate the returned temperments to the dropdown
-      if( clicked === false){
+      if (clicked === false) {
         for (let i = 0; i < temperaments.length; i++) {
-
-          $("#myDropdown").append (
-          `<option id="${temperaments[i].id}" value="${temperaments[i].temperament}">${temperaments[i].temperament}</option>`)
-            clicked = true;
+          $("#myDropdown").append(
+            `<option id="${temperaments[i].id}" value="${temperaments[i].temperament}">${temperaments[i].temperament}</option>`
+          );
+          clicked = true;
           console.log("Temperament: ", temperaments[i].temperament);
         }
       }
