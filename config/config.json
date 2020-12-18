@@ -1,15 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "password": "rootroot",
-=======
-    "password": "patrick74",
->>>>>>> main
-=======
-    "password": "mysql23@#",
->>>>>>> main
     "database": "looking_ruff_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
