@@ -42,13 +42,8 @@ $(document).ready(() => {
   displayUser(getUser());
 });
 // get dataTime and dataDate info
-<<<<<<< HEAD
 $(function() {
-  $(".myc-day-time-container .myc-available-time").click(function()  {
-=======
-$(() => {
   $(".myc-day-time-container .myc-available-time").click(function() {
->>>>>>> main
     const appointmentTime = $(this).attr("data-time");
     console.log("appointmentTime:", appointmentTime);
     const appointmentDate = $(this).attr("data-date");
@@ -93,15 +88,11 @@ const bookAppointment = (
     serviceId: serviceId,
     complete: false
   })
-<<<<<<< HEAD
-  .then(() => {
-=======
     .then(() => {
       $.post("/api/send", {
         email: email,
         appointmentDate: appointmentDate
       });
->>>>>>> main
       window.location.replace("/members");
     })
 
