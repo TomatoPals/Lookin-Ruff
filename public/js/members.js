@@ -25,9 +25,9 @@ $(document).ready(() => {
       temperaments = data;
       console.log(temperaments);
     }).then(() => {
-      console.log("Temperments: ", temperaments);
+      console.log("Temperaments: ", temperaments);
       //populate the returned temperments to the dropdown
-      for (i = 0; i < temperaments.length; i++) {
+      for (let i = 0; i < temperaments.length; i++) {
         $("<option/>")
           .val(temperaments[i])
           .text(temperaments[i])
@@ -56,4 +56,4 @@ filterFunction => {
       a[i].style.display = "none";
     }
   }
-}
+};

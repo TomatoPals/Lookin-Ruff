@@ -240,7 +240,7 @@ module.exports = function(app) {
   // Route for populating the temperaments dropdown
   app.get("/api/temperament", (req, res) => {
     // findAll returns all entries for a table when used with no options
-    db.dogTemperament.findAll({}).then(dbTemperament => {
+    db.dogTemperaments.findAll({}).then(dbTemperament => {
       res.json(dbTemperament);
     });
   });

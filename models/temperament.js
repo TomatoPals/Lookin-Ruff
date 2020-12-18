@@ -1,13 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
-  const dogTemperament = sequelize.define(
-    "dogTemperament",
+  const dogTemperaments = sequelize.define(
+    "dogTemperaments",
     {
       temperament: {
         type: DataTypes.STRING,
         allowNull: false
       }
-    },
-    { freezeTableName: true }
+    }
   );
-  return dogTemperament;
+  return dogTemperaments;
 };

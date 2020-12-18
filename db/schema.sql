@@ -48,9 +48,9 @@ CREATE TABLE dogBreeds (
 
 
 /*dog_temperment table*/
-CREATE TABLE dogTemperments (
+CREATE TABLE dogTemperaments (
     id INT NOT NULL AUTO_INCREMENT,
-    temperment VARCHAR(100) NOT NULL,
+    temperament VARCHAR(100) NOT NULL,
     createdAt DATETIME DEFAULT NULL,
     updatedAt DATETIME DEFAULT NULL,
     PRIMARY KEY (id)
