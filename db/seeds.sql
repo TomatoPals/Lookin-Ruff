@@ -1,14 +1,6 @@
 
 /*insert user*/
-INSERT INTO Users (isAdmin, firstName, lastName, email, address, address2, city, state, zipCode, phone, roleId, dogName, dogBreedId, dogTempermentId, password, createdAt, updatedAt) VALUES (true, 'Test', 'Account', 'test@test.com', '1234 Fake Street', 'Apt 1', 'Raleigh', 'NC', '27606', '919-555-1212', '2', 'Spike', '283', '1', '$2a$10$RFWvjbxeUrEOLo5S91QOmewGQzds.WlqS9JKm0md.E.M0jmm31CKy', '2020-12-12 01:04:43', '2020-12-12 01:04:43');
-
-
-/*insert working days*/
--- INSERT INTO workingDays (workday, startTime, endTime, active, createdAt) VALUES ('1', '08:00:00', '15:30:00', '1', '2020-12-11 09:36:27');
--- INSERT INTO workingDays (workday, startTime, endTime, active, createdAt) VALUES ('2', '08:00:00', '15:30:00', '1', '2020-12-11 09:36:27');
--- INSERT INTO workingDays (workday, startTime, endTime, active, createdAt) VALUES ('3', '08:00:00', '15:30:00', '0', '2020-12-11 09:36:27');
--- INSERT INTO workingDays (workday, startTime, endTime, active, createdAt) VALUES ('4', '08:00:00', '15:30:00', '0', '2020-12-11 09:36:27');
--- INSERT INTO workingDays (workday, startTime, endTime, active, createdAt) VALUES ('5', '08:00:00', '15:30:00', '1', '2020-12-11 09:36:27');
+INSERT INTO Users (isAdmin, firstName, lastName, email, address, address2, city, state, zipCode, phone,dogName, dogBreedId, dogTempermentId, password, createdAt, updatedAt) VALUES (true, 'Test', 'Account', 'test@test.com', '1234 Fake Street', 'Apt 1', 'Raleigh', 'NC', '27606', '919-555-1212','Spike', '283', '1', '$2a$10$RFWvjbxeUrEOLo5S91QOmewGQzds.WlqS9JKm0md.E.M0jmm31CKy', '2020-12-12 01:04:43', '2020-12-12 01:04:43');
 
 /*insert stylist*/
 INSERT INTO stylists (stylistName, createdAt) VALUES ('Bill Murray', '2020-12-11 09:36:27');
@@ -22,9 +14,6 @@ INSERT INTO services (description, price, duration, createdAt) VALUES ('Sanitary
 INSERT INTO services (description, price, duration, createdAt) VALUES ('Anal gland cleaning', '1000.00', '60', '2020-12-11 09:36:27');
 INSERT INTO services (description, price, duration, createdAt) VALUES ('Bandana or bow', '10', '15', '2020-12-11 09:36:27');
 
-/*insert roles*/
--- INSERT INTO roles (roleName, createdAt) VALUES ('admin', '2020-12-11 09:36:27');
--- INSERT INTO roles (roleName, createdAt) VALUES ('admin', '2020-12-11 09:36:27');
 
 /*insert dog temperment*/
 INSERT INTO dogTemperments (temperment, createdAt) VALUES ('Confident, friendly, non-aggressive', '2020-12-11 09:36:27');
@@ -384,46 +373,6 @@ INSERT INTO dogBreeds(breedName,breedTypeId,breedOrigin,breedImage,breedPdf,crea
 INSERT INTO dogBreeds(breedName,breedTypeId,breedOrigin,breedImage,breedPdf,createdAt) VALUES ('AMERICAN WATER SPANIEL',37,'UNITED STATES OF AMERICA',NULL,'http://www.fci.be/Nomenclature/Standards/301g08-en.pdf','2020-12-11 09:36:27');
 INSERT INTO dogBreeds(breedName,breedTypeId,breedOrigin,breedImage,breedPdf,createdAt) VALUES ('SPANISH WATER DOG',37,'SPAIN',NULL,'http://www.fci.be/Nomenclature/Standards/336g08-en.pdf','2020-12-11 09:36:27');
 INSERT INTO dogBreeds(breedName,breedTypeId,breedOrigin,breedImage,breedPdf,createdAt) VALUES ('DACHSHUND',24,'GERMANY','http://www.fci.be/Nomenclature/Illustrations/148g04-1.jpg','http://www.fci.be/Nomenclature/Standards/148g04-en.pdf','2020-12-11 09:36:27');
-
-/*insert breed_types*/
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Asian Spitz and related breeds',1,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Bichons and related breeds',2,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('British and Irish Pointers and Setters',3,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Bull type Terriers',4,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Cattledogs (except Swiss Cattledogs)',5,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Chihuahueno',6,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Continental Pointing Dogs',7,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Continental Toy Spaniel and others',8,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('English Toy Spaniels',9,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('European Spitz',10,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Flushing Dogs',11,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Hairless Dogs',12,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Japan Chin and Pekingese',13,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Kromfohrländer',14,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Large and medium sized Terriers',15,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Leash (scent) Hounds',16,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Long-haired or fringed Sighthounds',17,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Molossian type',18,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Nordic Hunting Dogs',19,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Nordic Sledge Dogs',19,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Nordic Watchdogs and Herders',20,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Pinscher and Schnauzer type',21,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Poodle',22,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Primitive type',23,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Primitive type - Hunting Dogs',24,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Related breeds',25,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Retrievers',26,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Rough-haired Sighthounds',27,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Scent hounds',28,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Sheepdogs',29,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Short-haired Sighthounds',30,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Small Belgian Dogs',31,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Small Molossian type Dogs',32,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Small sized Terriers',33,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Swiss Mountain- and Cattledogs',34,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Tibetan breeds',35,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Toy Terriers',36,'2020-12-11 09:36:27');
--- INSERT INTO dogBreedTypes(breedTypeName,breedTypeId,createdAt) VALUES ('Water Dogs',37,'2020-12-11 09:36:27');
 
 /*sample appointments*/
 

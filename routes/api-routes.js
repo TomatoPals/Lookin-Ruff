@@ -23,7 +23,10 @@ module.exports = function(app) {
       address2: req.body.address2,
       city: req.body.city,
       state: req.body.state,
-      zipCode: req.body.zipCode
+      zipCode: req.body.zipCode,
+      dogName: req.body.dogName,
+      dogBreedId: req.body.dogBreedId,
+      dogNote: req.body.dogNote
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -118,7 +121,7 @@ module.exports = function(app) {
 
   //route for
 
-  //route for getting user appointment info
+  // route for getting user appointment info
   app.get("/api/appointments", (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
@@ -130,6 +133,16 @@ module.exports = function(app) {
           res.json(dbget);
         });
     }
+  });
+
+  app.get("/api/appointments/:date", async (req, res) => {
+    const dbStylist = await db.appointments.findAll({
+      where: {
+        appointmentDate: req.params.date
+      },
+      include: db.User
+    });
+    res.json(dbStylist);
   });
 
   //route for updating appointment info
@@ -211,22 +224,6 @@ module.exports = function(app) {
     res.json(dbService);
   });
 
-  //route for creating a workday
-  app.post("/api/workday", async (req, res) => {
-    const { workday, startTime, endTime, active } = req.body;
-    try {
-      const createWorkday = await db.workingDays.create({
-        workday,
-        startTime,
-        endTime,
-        active
-      });
-      res.json(createWorkday);
-    } catch (error) {
-      res.json(error);
-    }
-  });
-
   // Route for populating the temperments dropdown
   app.get("/api/temperment", (req, res) => {
     // findAll returns all entries for a table when used with no options
@@ -234,68 +231,5 @@ module.exports = function(app) {
       // We have access to the todos as an argument inside of the callback function
       res.json(dbTemperment);
     });
-  });
-  //route for deleting a workday
-  app.delete("/api/workday/", async (req, res) => {
-    const dbWorkday = await db.workingDays.destroy({
-      where: {
-        id: req.body.id
-      }
-    });
-    res.json(dbWorkday);
-  });
-
-  //route for updating a workday
-  app.put("/api/workday", async (req, res) => {
-    const dbWorkday = await db.workingDays.update(req.body, {
-      where: {
-        id: req.body.id
-      }
-    });
-    res.json(dbWorkday);
-  });
-
-  //route for creating dog note
-  app.post("/api/dognotes", async (req, res) => {
-    const { userId, note } = req.body;
-    try {
-      const createDogNote = await db.dogNotes.create({
-        userId,
-        note
-      });
-      res.json(createDogNote);
-    } catch (error) {
-      res.json(error);
-    }
-  });
-
-  //route for deleting a dog note
-  app.delete("/api/dognotes/", async (req, res) => {
-    const dbDogNotes = await db.dogNotes.destroy({
-      where: {
-        id: req.body.id
-      }
-    });
-    res.json(dbDogNotes);
-  });
-
-  //route for updating a dog note
-  app.put("/api/dognotes", async (req, res) => {
-    const dbDogNotes = await db.dogNotes.update(req.body, {
-      where: {
-        id: req.body.id
-      }
-    });
-    res.json(dbDogNotes);
-  });
-
-  //route for getting a dog note
-  app.get("/api/dognotes/:id", async (req, res) => {
-    const dbDogNotes = await db.dogNotes.findOne({
-      where: {
-        id: req.params.id
-      }
-    });
-    res.json(dbDogNotes);
   });
 };

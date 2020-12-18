@@ -1,7 +1,7 @@
 form.signup,
 form.login, 
 form.index{
-  margin-top: 50px;
+  margin-top: 5px;
 }
 .button {
   /* font-family: 'Ubuntu', sans-serif; */
@@ -12,11 +12,28 @@ form.index{
   border-radius: 10px;
   padding: 10px;
   text-decoration: none;
-  display: block;
+  /* display: block; */
   margin: auto;
   transition-duration: 0.4s;
   cursor: pointer;
 }
+
+.button-admin {
+  /* font-family: 'Ubuntu', sans-serif; */
+  font-size: 10px;
+  text-align: center;
+  text-size-adjust: inherit;
+  background: linear-gradient(90deg,#151F44, #243572);
+  border-radius: 10px;
+  /* padding: 10px; */
+  text-decoration: none;
+  /* display: block; */
+  margin: auto;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
 .button1:hover {
    background: #e1eeff;
    color: black;
@@ -193,6 +210,15 @@ body {
   z-index: -1;
   border-radius: 10px;
 }
-.container {
 
+hr {
+  border: none;
+  height: 1px;
+  /* Set the hr color */
+  color: #333; /* old IE */
+  background-color: #333; /* Modern Browsers */
+}
+
+.table {
+  border: 1px solid black;
 }

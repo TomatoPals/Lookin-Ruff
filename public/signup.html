@@ -5,24 +5,37 @@
   <title>Passport Authentication</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
-    </div>
-  </nav>
+  <!-- navbar start -->
   <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Sign Up Form</h2>
-        <p>Already a Member? Login <a href="/login">here</a></p>
-        <form class="signup">
-          <h4 style="padding: 0 0 2px 0;">Member Info</h4>
+    <nav class="navbar navbar-expand-lg">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="/index.html">
+          <img src="assets/lookinRuff_S.svg" width="100%" alt="">
+        </a>
+      </div>
+      <div class="mr-5">
+        <a class="btn btn-primary button button1" style="width: 100px" href="/signup.html" role="button">Signup</a>
+        <a class="btn btn-primary button button1" style="width: 100px" href="/login" button">Login</a>
+      </div>
+    </nav>
+  </div>
+  <!-- navbar end -->
+  
+  <!-- signup container start -->
+  <div class="container">
+    <h2 class="mt-3">Sign Up Form</h2>
+    <!-- form start -->
+    <form class="signup">
+      <div class="row col-12">
+        <!-- member info start -->
+        <div class="col-sm-6 col-md-5 col-lg-6 mt-5">
+          <h4 style="padding: 0 0 10px 0;">Member Info</h4>
           <div class="row">
             <div class="form-group col-lg-6">
               <label for="firstName">First Name</label>
@@ -64,56 +77,67 @@
             </div>
           </div>
           <div class="row">
-            <div class="form-group col-lg-8">
+            <div class="form-group col-lg-6">
               <label for="city">City</label>
               <input type="text" class="form-control" id="city-input" placeholder="City">
             </div>
-            <div class="form-group col-lg-2">
+            <div class="form-group col-lg-3">
               <label for="state">State</label>
               <input type="text" class="form-control" id="state-input" placeholder="State">
             </div>
-            <div class="form-group col-lg-2">
+            <div class="form-group col-lg-3">
               <label for="zipCode">Zip</label>
               <input type="text" class="form-control" id="zipCode-input" placeholder="Zip">
             </div>
           </div>
-          <h4 style="padding: 0 0 10px 0;">Dog Info</h4>
-          <div class="row">
-            <div class="form-group col-lg-6">
-              <label for="dogName">Dog Name</label>
-              <input type="text" class="form-control" id="dogName-input" placeholder="Dog Name">
+        </div>
+        <!-- member info end -->
+        <!-- dog info start -->
+        <div class="col-sm-6 col-md-5 col-lg-6 mt-5">
+          <div>
+            <h4 style="padding: 0 0 10px 0;">Dog Info</h4>
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <label for="dogName">Dog Name</label>
+                <input type="text" class="form-control" id="dogName-input" placeholder="Dog Name">
+              </div>
+              <div class="form-group col-lg-6">
+                <label for="breedName">Dog Temperament</label>
+                <input type="text" class="form-control" id="dogTemperment-input" placeholder="Dog Temperament">
+              </div>
             </div>
-            <div class="form-group col-lg-6">
-              <label for="breedName">Dog Temperament</label>
-              <input type="text" class="form-control" id="breedName-input" placeholder="Dog Temperament">
+            <div class="row">
+              <div class="form-group col-lg-6">
+                <label for="breedName">Breed Name</label>
+                <input type="text" class="form-control" id="breedName-input" placeholder="Breed Name">
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-lg-6">
-              <label for="breedName">Breed Name</label>
-              <input type="text" class="form-control" id="breedName-input" placeholder="Breed Name">
-            </div>
-            <div class="form-group col-lg-6">
-              <label for="dogBreedId">Breed Type</label>
-              <input type="text" class="form-control" id="dogBreedId-input" placeholder="Breed Type">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <label for="dogNote">Dog Notes</label>
-              <textarea class="form-control" id="dogNote" rows="4"></textarea>
+            <div class="row">
+              <div class="col-lg-12">
+                <label for="dogNote">Dog Notes</label>
+                <textarea class="form-control" id="dogNote" rows="5"></textarea>
+              </div>
             </div>
           </div>
           <br>
-          <button type="submit" class="btn btn-success">Sign Up</button>
-        </form>
+          <button type="submit" class="btn btn-primary button button1 float-right mt-1" style="width: 100px">Sign
+            Up</button>
+        </div>
+        <!-- dog info end -->
       </div>
-    </div>
   </div>
+  <!-- signup container end -->
+  </form>
+  <!-- form end -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
   <script type="text/javascript" src="js/signup.js"></script>
-
 </body>
 
 </html>
