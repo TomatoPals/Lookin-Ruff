@@ -11,6 +11,8 @@ $(document).ready(() => {
   const cityInput = $("input#city-input");
   const stateInput = $("input#state-input");
   const zipInput = $("input#zipCode-input");
+  const dogName = $("input#dogName-input");
+  const dogNote = $("#dogNote");
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", event => {
@@ -25,7 +27,9 @@ $(document).ready(() => {
       address2: address2Input.val().trim(),
       city: cityInput.val().trim(),
       state: stateInput.val().trim(),
-      zipCode: zipInput.val().trim()
+      zipCode: zipInput.val().trim(),
+      dogName: dogName.val().trim(),
+      dogNote: dogNote.val().trim()
     };
 
     if (!userData.email || !userData.password) {
@@ -42,7 +46,9 @@ $(document).ready(() => {
       userData.address2,
       userData.city,
       userData.state,
-      userData.zipCode
+      userData.zipCode,
+      userData.dogName,
+      userData.dogNote
     );
     emailInput.val("");
     passwordInput.val("");
@@ -54,6 +60,8 @@ $(document).ready(() => {
     cityInput.val("");
     stateInput.val("");
     zipInput.val("");
+    dogName.val("");
+    dogNote.val("");
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
@@ -70,11 +78,7 @@ $(document).ready(() => {
     city,
     state,
     zipCode,
-    roleId,
     dogName,
-    dogBreedId,
-    dogTempramentId,
-    imageId,
     dogNote
   ) {
     $.post("/api/signup", {
@@ -88,11 +92,7 @@ $(document).ready(() => {
       city: city,
       state: state,
       zipCode: zipCode,
-      roleId: roleId,
       dogName: dogName,
-      dogBreedId: dogBreedId,
-      dogTempramentId: dogTempramentId,
-      imageId: imageId,
       dogNote: dogNote
     })
       .then(() => {

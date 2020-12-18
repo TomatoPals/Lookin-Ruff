@@ -64,18 +64,18 @@ $(document).ready(() => {
       const id = element.id;
       const stylistName = element.stylistName;
       const createdAt = element.createdAt;
-      stylistDetails.append(`<div class="col-4">${stylistName}</div>`);
-      stylistDetails.append(`<div class="col-4">${createdAt}</div>`);
+      stylistDetails.append(`<div class="col-4 mt-2">${stylistName}</div>`);
+      stylistDetails.append(`<div class="col-4 mt-2">${createdAt}</div>`);
       stylistDetails.append(
-        `<div class="col-4"><button class="btn-primary" data-btn="delete" id="${id}">Delete</button></div>`
+        `<div class="col-4"><button class="btn btn-primary button-admin button1" data-btn="delete" id="${id}">Delete</button></div>`
       );
     });
     stylistDetails.append(
-      "<div class='col-4'><input type='text' placeholder='Enter Name' id='inputName'></div>"
+      "<div class='col-4 mt-4'><input type='text'class='form-control' placeholder='Enter Name' id='inputName'></div>"
     );
     stylistDetails.append("<div class='col-4>'</div>");
     stylistDetails.append(
-      "<div class='col-4'><button class='btn-primary' data-btn='save' id='stylistSaveBtn'>Save</button></div>"
+      "<div class='col-4'><button class='btn btn-primary button-admin button1 mt-4' data-btn='save'  style='width: 100px; height:38px' id='stylistSaveBtn'>Add New Stylist</button></div>"
     );
   };
 
@@ -88,24 +88,26 @@ $(document).ready(() => {
       const description = element.description;
       const price = element.price;
       const duration = element.duration;
-      serviceDetails.append(`<div class="col-6">${description}</div>`);
-      serviceDetails.append(`<div class="col-2">$${price}</div>`);
-      serviceDetails.append(`<div class="col-2">${duration}</div>`);
+      serviceDetails.append(`<div class="col-6 mt-2">${description}</div>`);
+      serviceDetails.append(`<div class="col-2 mt-2">$${price}.00</div>`);
       serviceDetails.append(
-        `<div class="col-2"><button class="btn-primary" data-btn="delete" id="${id}">Delete</button></div>`
+        `<div class="col-2 mt-2 text-center">${duration} min</div>`
+      );
+      serviceDetails.append(
+        `<div class="col-2"><button class="btn btn-primary button-admin button1 mt-2" data-btn="delete" id="${id}">Delete</button></div>`
       );
     });
     serviceDetails.append(
-      "<div class='col-6'><input type='text' style='width:400px'  placeholder='Please enter a service description' id='inputDescription'></div>"
+      "<div class='col-6'><input type='text' class='form-control mt-4' style='width:100%'  placeholder='Add a new service' id='inputDescription'></div>"
     );
     serviceDetails.append(
-      "<div class='col-2'><input type='text' placeholder='Enter Price' id='inputPrice'></div>"
+      "<div class='col-2'><input type='text' class='form-control mt-4' placeholder='Price' id='inputPrice'></div>"
     );
     serviceDetails.append(
-      "<div class='col-2'><input type='text' placeholder='Enter Duration' id='inputDuration'></div>"
+      "<div class='col-2'><input type='text' class='form-control mt-4 text-center' placeholder='Duration' id='inputDuration'></div>"
     );
     serviceDetails.append(
-      "<div class='col-2'><button class='btn-primary' data-btn='save' id='saveBtn'>Save</button></div>"
+      "<div class='col-2'><button class='btn btn-primary button-admin button1 mt-4' style='width: 57px; height:38px' data-btn='save' id='saveBtn'>Add</button></div>"
     );
   };
   displayServices(getServices());
