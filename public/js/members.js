@@ -1,4 +1,5 @@
 $(document).ready(() => {
+  console.log("$:", $);
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(data => {
@@ -16,36 +17,38 @@ $(document).ready(() => {
     // dog info
     $("input#dogName-input").val(data.dogName);
     $("#dogNote").val(data.dogNote);
+    $("#temperament-input").val(data.dogTempermentId);
+    $("#breedName-input").val(data.dogBreedId);
   });
 
-  let clicked = false;
-  let temperaments = [];
+  // let clicked = false;
+  // let temperaments = [];
 
-  $("#temperamentBtn").on("click", () => {
-    $.get("/api/temperament", data => {
-      temperaments = data;
-      console.log(temperaments);
-    }).then(() => {
-      console.log("Temperaments: ", temperaments);
-      //populate the returned temperments to the dropdown
-      if (clicked === false) {
-        for (let i = 0; i < temperaments.length; i++) {
-          $("#myDropdown").append(
-            `<option id="${temperaments[i].id}" value="${temperaments[i].temperament} class= "choice">${temperaments[i].temperament}</option>`
-          );
-          clicked = true;
-          console.log("Temperament: ", temperaments[i].temperament);
-        }
-        // $("option").onclick= function() {
-        //   console.log($(this));
-        // };
-      }
-    });
-    document.getElementById("option").onclick = function() {
-      console.log("clicked: ");
-    };
-    $("#myDropdown").toggle("show");
-    event.preventDefault();
-    console.log("myFunction is running");
-  });
+  // $("#temperamentBtn").on("click", () => {
+  //   $.get("/api/temperament", data => {
+  //     temperaments = data;
+  //     console.log(temperaments);
+  //   }).then(() => {
+  //     console.log("Temperaments: ", temperaments);
+  //     //populate the returned temperments to the dropdown
+  //     if (clicked === false) {
+  //       for (let i = 0; i < temperaments.length; i++) {
+  //         $("#myDropdown").append(
+  //           `<option id="${temperaments[i].id}" value="${temperaments[i].temperament} class= "choice">${temperaments[i].temperament}</option>`
+  //         );
+  //         clicked = true;
+  //         console.log("Temperament: ", temperaments[i].temperament);
+  //       }
+  //       // $("option").onclick= function() {
+  //       //   console.log($(this));
+  //       // };
+  //     }
+  //   });
+  //   document.getElementById("option").onclick = function() {
+  //     console.log("clicked: ");
+  //   };
+  //   $("#myDropdown").toggle("show");
+  //   event.preventDefault();
+  //   console.log("myFunction is running");
+  // });
 });
