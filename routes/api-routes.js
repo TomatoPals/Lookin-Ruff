@@ -25,8 +25,10 @@ module.exports = function(app) {
       state: req.body.state,
       zipCode: req.body.zipCode,
       dogName: req.body.dogName,
+      dogType: req.body.dogType,
+      dogNote: req.body.dogNote,
       dogBreedId: req.body.dogBreedId,
-      dogNote: req.body.dogNote
+      dogTempermentId: req.body.dogTempermentId
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -63,7 +65,9 @@ module.exports = function(app) {
         dogBreedId: req.user.dogBreedId,
         dogTempermentId: req.user.dogTempermentId,
         imageId: req.user.imageId,
-        dogNote: req.user.dogNote
+        dogNote: req.user.dogNote,
+        dogType: req.body.dogType,
+        dogTemperament: req.body.dogTemperament
       });
     }
   });
@@ -508,7 +512,12 @@ module.exports = function(app) {
       res.json({});
     } else {
       db.appointments
-        .findAll({ where: { id: `${req.user.id}` } })
+        .findAll({
+          where: {
+            id: `${req.user.id}`
+          },
+          include: db.stylists
+        })
         .then(dbget => {
           res.json(dbget);
         });
@@ -604,7 +613,7 @@ module.exports = function(app) {
     res.json(dbService);
   });
 
-  // Route for populating the temperments dropdown
+  // Route for populating the temperament dropdown
   app.get("/api/temperament", (req, res) => {
     // findAll returns all entries for a table when used with no options
     db.dogTemperaments.findAll({}).then(dbTemperament => {
