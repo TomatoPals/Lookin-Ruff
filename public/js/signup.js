@@ -13,12 +13,6 @@ $(document).ready(() => {
   const zipInput = $("input#zipCode-input");
   const dogName = $("input#dogName-input");
   const dogNote = $("#dogNote");
-<<<<<<< HEAD
-
-  // const temperment = $("#temperment").val();
-  let temperments = [];
-=======
->>>>>>> main
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", event => {
