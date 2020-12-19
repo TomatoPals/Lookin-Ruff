@@ -28,8 +28,12 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
-  app.get("/calendar", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/calendar.html"));
+  app.get("/calendar", (req, res) => {
+    if (req.user) {
+      res.sendFile(path.join(__dirname, "../public/calendar.html"));
+    } else {
+      res.sendFile(path.join(__dirname, "../public/signup.html"));
+    }
   });
 
   app.get("/admin-dashboard", isAdmin, (req, res) => {
