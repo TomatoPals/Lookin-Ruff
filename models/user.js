@@ -58,14 +58,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     dogBreedId: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true
     },
     dogTempermentId: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    imageId: {
       type: DataTypes.STRING,
       allowNull: true
     },

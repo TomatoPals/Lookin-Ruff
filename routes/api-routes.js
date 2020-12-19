@@ -61,7 +61,7 @@ module.exports = function(app) {
         phone: req.user.phone,
         dogName: req.user.dogName,
         dogBreedId: req.user.dogBreedId,
-        dogTempramentId: req.user.dogTempramentId,
+        dogTempermentId: req.user.dogTempermentId,
         imageId: req.user.imageId,
         dogNote: req.user.dogNote
       });
