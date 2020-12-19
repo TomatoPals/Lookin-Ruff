@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <title>Calendar</title>
   <meta charset="UTF-8" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="stylesheets/style.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" /> -->
   <link href="stylesheets/calendar.css" rel="stylesheet" />
   <link href="stylesheets/style.css" rel="stylesheet" />
 </head>
-
+<style>
+  @media screen and (min-width: 676px) {
+      .modal-content {
+        max-width: 600px; /* New width for default modal */
+      }
+  }
+</style>
 <body>
   <div class="container">
+    <nav class="navbar navbar-expand-lg">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="/index.html">
+          <img src="assets/lookinRuff_S.svg" width="100%" alt="">
+        </a>
+      </div>
+      <div class="mr-5">
+        <a class="btn btn-primary button button1" style="width: 160px" href="/members.html" role="button">Member Page</a>
+        <a class="btn btn-primary button button1" style="width: 100px" href="/logout" button">Logout</a>
+      </div>
+    </nav>
     <div id="picker"></div>
-    <!-- <div>
-        <p>Selected date: <span id="selected-date"></span></p>
-        <p>Selected time: <span id="selected-time"></span></p>
-    </div> -->
     <!-- The appointment Modal -->
     <div id="apptModal" class="modal">
       <!-- Modal content -->
@@ -51,7 +63,7 @@
       </div>
     </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="/js/mark-your-calendar.js"></script>
   <script type="text/javascript" src="/js/calendarDBCalls.js"></script>
@@ -157,5 +169,4 @@
     })(jQuery);
   </script>
 </body>
-
 </html>

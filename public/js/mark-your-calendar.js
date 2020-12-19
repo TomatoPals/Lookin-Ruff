@@ -6,8 +6,8 @@
   };
 
   $.fn.markyourcalendar = function(opts) {
-    const prevHtml = "<div id='myc-prev-week'><</div>";
-    const nextHtml = "<div id='myc-next-week'>></div>";
+    const prevHtml = "<div class='btn btn-primary button button1' id='myc-prev-week'><</div>";
+    const nextHtml = "<div class='btn btn-primary button button1' id='myc-next-week'>></div>";
     const defaults = {
       availability: [[], [], [], [], [], [], []],
       isMultiple: false,
@@ -83,7 +83,7 @@
       for (i = 0; i < 7; i++) {
         let tmpAvailTimes = "";
         $.each(settings.availability[i], function() {
-          tmpAvailTimes += `<a href="javascript:;" class="myc-available-time" data-time="${this}" data-date="${formatDate(
+          tmpAvailTimes += `<a href="javascript:;" class="btn btn-primary button button1 myc-available-time " data-time="${this}" data-date="${formatDate(
             settings.startDate.addDays(i)
           )} ">${this}</a>`;
         });
