@@ -28,6 +28,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
+  app.get("/signup", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/signup.html"));
+  });
+
   app.get("/calendar", (req, res) => {
     if (req.user) {
       res.sendFile(path.join(__dirname, "../public/calendar.html"));
