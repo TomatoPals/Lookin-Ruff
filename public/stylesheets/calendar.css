@@ -11,7 +11,7 @@
   font-family: 'Ubuntu', sans-serif;
   font-size: 30px;
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: lighter;
   text-align: center;
   text-transform: capitalize;
@@ -30,14 +30,13 @@
 }
 
 #myc-prev-week {
-  /* border: 1px solid #243572; */
   border-radius: 80px;
-  /* color: #243572; */
   cursor: pointer;
   float: left;
   height: 40px;
   text-align: center;
   width: 40px;
+  line-height: 20px;
 }
 
 #myc-next-week {
@@ -47,6 +46,7 @@
   text-align: center;
   width: 40px; 
   position: relative;
+  line-height: 20px;
 }
 
 #myc-week-container {
@@ -68,7 +68,7 @@
  
   text-size-adjust: inherit;
   background: linear-gradient(90deg,#151F44, #243572);
-  border-radius: 10px;
+  /* border-radius: 10px; */
   /* padding: 10px; */
   margin: auto;
   transition-duration: 0.4s;
@@ -207,3 +207,4 @@
 .well-title {
   margin-bottom: 40px;
 }
+
