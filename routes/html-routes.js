@@ -31,7 +31,9 @@ module.exports = function(app) {
   app.get("/calendar", (req, res) => {
     if (req.user) {
       res.sendFile(path.join(__dirname, "../public/calendar.html"));
-    } else res.sendFile(path.join(__dirname, "../public/signup.html"));
+    } else {
+      res.sendFile(path.join(__dirname, "../public/signup.html"));
+    }
   });
 
   app.get("/admin-dashboard", isAdmin, (req, res) => {
