@@ -41,7 +41,9 @@ $(document).ready(() => {
         // };
       }
     });
-    document.getElementById("option").onclick = function() {console.log('clicked: ')};
+    document.getElementById("option").onclick = function() {
+      console.log("clicked: ");
+    };
     $("#myDropdown").toggle("show");
     event.preventDefault();
     console.log("myFunction is running");
