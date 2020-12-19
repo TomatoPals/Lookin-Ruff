@@ -6,8 +6,10 @@
   };
 
   $.fn.markyourcalendar = function(opts) {
-    const prevHtml = "<div class='btn btn-primary button button1' id='myc-prev-week'><</div>";
-    const nextHtml = "<div class='btn btn-primary button button1' id='myc-next-week'>></div>";
+    const prevHtml = 
+    "<div class='btn btn-primary button button1' id='myc-prev-week'><</div>";
+    const nextHtml = 
+    "<div class='btn btn-primary button button1' id='myc-next-week'>></div>";
     const defaults = {
       availability: [[], [], [], [], [], [], []],
       isMultiple: false,
