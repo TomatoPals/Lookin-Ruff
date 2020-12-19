@@ -35,9 +35,10 @@ $(document).ready(() => {
     const userJSON = await userPromise;
     const userId = userJSON.id;
     const email = userJSON.email;
-    console.log("UserId :", userId);
+    const dogName = userJSON.dogName;
     appointment.userId = userId;
     appointment.email = email;
+    appointment.dogName = dogName;
   };
   displayUser(getUser());
 });
@@ -45,9 +46,7 @@ $(document).ready(() => {
 $(() => {
   $(".myc-day-time-container .myc-available-time").click(function() {
     const appointmentTime = $(this).attr("data-time");
-    console.log("appointmentTime:", appointmentTime);
     const appointmentDate = $(this).attr("data-date");
-    console.log("appointmentDate:", appointmentDate);
     appointment.appointmentDate = appointmentDate;
     appointment.appointmentTime = appointmentTime;
   });
@@ -60,14 +59,14 @@ $(() => {
     const stylistId = $("#stylist option:selected").attr("id");
     appointment.serviceId = serviceId;
     appointment.stylistId = stylistId;
-    console.log("appointment:", appointment);
     bookAppointment(
       appointment.userId,
       appointment.stylistId,
       appointment.appointmentDate,
       appointment.appointmentTime,
       appointment.serviceId,
-      appointment.email
+      appointment.email,
+      appointment.dogName
     );
   });
 });
@@ -78,7 +77,8 @@ const bookAppointment = (
   appointmentDate,
   appointmentTime,
   serviceId,
-  email
+  email,
+  dogName
 ) => {
   $.post("/api/appointments", {
     UserId: userId,
@@ -91,7 +91,9 @@ const bookAppointment = (
     .then(() => {
       $.post("/api/send", {
         email: email,
-        appointmentDate: appointmentDate
+        appointmentDate: appointmentDate,
+        appointmentTime: appointmentTime,
+        dogName: dogName
       });
       window.location.replace("/members");
     })
