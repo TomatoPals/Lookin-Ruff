@@ -8,6 +8,8 @@
 }
 
 #myc-current-month-year-container {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 30px;
   display: inline-block;
   font-size: 1.5em;
   font-weight: lighter;
@@ -28,35 +30,23 @@
 }
 
 #myc-prev-week {
-  border: 1px solid #ffffff;
+  /* border: 1px solid #243572; */
   border-radius: 80px;
-  color: #ffffff;
+  /* color: #243572; */
   cursor: pointer;
   float: left;
-  font-size: 1.6em;
-  font-weight: lighter;
   height: 40px;
   text-align: center;
   width: 40px;
 }
 
 #myc-next-week {
-  border: 1px solid #ffffff;
   border-radius: 80px;
-  color: #ffffff;
-  cursor: pointer;
   float: right;
-  font-size: 1.6em;
-  font-weight: lighter;
   height: 40px;
   text-align: center;
-  width: 40px;
-}
-
-#myc-prev-week:hover,
-#myc-next-week:hover {
-  border: 1px solid #bdbdbd;
-  color: #bdbdbd;
+  width: 40px; 
+  position: relative;
 }
 
 #myc-week-container {
@@ -64,10 +54,25 @@
 }
 
 #myc-dates-container {
-  background-color: #fafafa;
+  color: white;
+  background-color: #243572;
+  font-family: 'Ubuntu', sans-serif;
+  color: white;
+  font-size: 20px;
+  text-size-adjust: inherit;
 }
 
 .myc-date-header {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+ 
+  text-size-adjust: inherit;
+  background: linear-gradient(90deg,#151F44, #243572);
+  border-radius: 10px;
+  /* padding: 10px; */
+  margin: auto;
+  transition-duration: 0.4s;
+
   border-right: 1px solid #e0e0e0;
   display: inline-block;
   min-height: 50px;
@@ -114,6 +119,18 @@
 }
 
 .myc-available-time {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  text-size-adjust: inherit;
+  background: linear-gradient(90deg,#151F44, #243572);
+  border-radius: 10px;
+  /* padding: 10px; */
+  text-decoration: none;
+  margin: auto;
+  transition-duration: 0.4s;
+  cursor: pointer;
+
   background-color: #29b6f6;
   border-radius: 20px;
   color: #ffffff;
