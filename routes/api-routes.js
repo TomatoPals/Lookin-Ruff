@@ -221,7 +221,7 @@ module.exports = function(app) {
                                 <tbody>
                                   <tr>
                                     <td style='width:400px;'>
-                                      <img alt='Descriptive Alt Text' height='189' src='assets/lookinRuff_Em.png' style='border:none;display:block;font-size:13px;height:123px;outline:none;text-decoration:none;width:100%;' width='400' />
+                                      <img alt='Descriptive Alt Text' height='189' src='https://lookin-ruff.herokuapp.com/assets/lookinRuff_Em.png' style='border:none;display:block;font-size:13px;height:123px;outline:none;text-decoration:none;width:100%;' width='400' />
                                     </td>
                                   </tr>
                                 </tbody>
@@ -247,7 +247,7 @@ module.exports = function(app) {
                               <table border='0' cellpadding='0' cellspacing='0' role='presentation' style='border-collapse:separate;line-height:100%;width:250px;'>
                                 <tr>
                                   <td align='center' bgcolor='#178F8F' role='presentation' style='background-color:#2eabe5;border:none;border-radius:4px;cursor:auto;padding:10px 25px;' valign='middle'>
-                                      <img alt='Descriptive Alt Text' height='300' src='assets/lookinRuff_Cir.png' style='border:none;display:block;font-size:13px;height:200px;outline:none;text-decoration:none;width:100%;' width='300' />
+                                      <img alt='Descriptive Alt Text' height='300' src='https://lookin-ruff.herokuapp.com/assets/lookinRuff_Cir.png' style='border:none;display:block;font-size:13px;height:200px;outline:none;text-decoration:none;width:100%;' width='300' />
                                   </td>
                                 </tr>
                               </table>

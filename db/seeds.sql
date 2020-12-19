@@ -1,7 +1,7 @@
 
 /*insert user*/
 
-INSERT INTO Users (isAdmin, firstName, lastName, email, address, address2, city, state, zipCode, phone,dogName, dogBreedId, dogTempermentId, password, createdAt, updatedAt) VALUES (true, 'Gillian', 'Cusick', 'test@test.com', '1234 Fake Street', 'Apt 1', 'Raleigh', 'NC', '27606', '919-555-1212','Spike', '283', '1', '$2a$10$RFWvjbxeUrEOLo5S91QOmewGQzds.WlqS9JKm0md.E.M0jmm31CKy', '2020-12-12 01:04:43', '2020-12-12 01:04:43');
+INSERT INTO Users (isAdmin, firstName, lastName, email, address, address2, city, state, zipCode, phone,dogName, dogBreedId, dogTempermentId, password, createdAt, updatedAt) VALUES (true, 'Gillian', 'Cusick', 'lookinruffgrooming@gmail.com', '1234 Fake Street', 'Apt 1', 'Raleigh', 'NC', '27606', '919-555-1212','Spike', '283', '1', '$2a$10$RFWvjbxeUrEOLo5S91QOmewGQzds.WlqS9JKm0md.E.M0jmm31CKy', '2020-12-12 01:04:43', '2020-12-12 01:04:43');
 
 
 /*insert stylist*/
